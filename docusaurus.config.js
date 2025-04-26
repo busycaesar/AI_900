@@ -14,7 +14,7 @@ const config = {
   tagline: "Dinosaurs are cool",
   favicon: "img/favicon.ico",
 
-  url: "https://busycaesar.github.io",
+  url: "https://ai900.shahtech.info",
   baseUrl: "/",
 
   organizationName: "busycaesar",
