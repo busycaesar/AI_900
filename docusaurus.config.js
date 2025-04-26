@@ -52,7 +52,7 @@ const config = {
 
   themeConfig: {
     navbar: {
-      title: "AI_900",
+      title: "AI 900",
       logo: {
         alt: "ShahTech Logo",
         src: "img/logo.svg",
