@@ -4,6 +4,12 @@ slug: /
 title: Welcome
 ---
 
-# Welcome
+# AI 900
 
-Welcome to the landing page of Docusaurus.
+## Description
+
+This repository contains notes for the preparation of AI 900.
+
+## Author
+
+[Dev J. Shah](https://github.com/busycaesar)
