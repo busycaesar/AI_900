@@ -102,7 +102,7 @@ A[Documents from the internet and public sources of information] --> B[Language 
 
 ### Common uses of AI to extract data and insights
 
-- Automated processing of forms and other documents in a business process - for example, processing an expense claim.
+- Automated processing of forms and other documents in a business process. for example, processing an expense claim.
 - Large-scale digitization of data from paper forms. For example, scanning and archiving census records.
 - Indexing documents for search.
 - Identifying key points and follow-up actions from meeting transcripts or recordings.

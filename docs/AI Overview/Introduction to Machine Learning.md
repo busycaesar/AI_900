@@ -63,5 +63,41 @@ There are multiple types of machine learning, and you must apply the appropriate
 - Supervised ML is a term for ML algorithm in which the training data includes both, the feature values and known label values.
 - It is used to train models by determining a relationship between the features and labels in past observations.
 - This helps the model to predict the unknown labels for the known features.
-
 #### Regression
+- Regression is a form of supervised ML in which the label predicted by the model is a numeric value.
+##### For Example
+- The number of ice creams sold on a given day, based on the temperature, rainfall, and windspeed.
+#### Classification
+- Classification is a form of supervised ML in which the label represents a categorization or class.
+##### Binary Classification
+- Binary classification predicts the outcome in boolean. The predicted label can be either true/false or positive/negative.
+###### For Example
+- Whether a patient is at risk for diabetes based on clinical metrics like weight, age, blood glucose level, and so on.
+##### Multiclass Classification
+- Multiclass Classification extends binary classification to predict a label that represents one of multiple possible classes.
+###### For Example
+- The genre of a movie (_comedy_, _horror_, _romance_, _adventure_, or _science fiction_) based on its cast, director, and budget.
+
+- In most scenarios that involve a known set of multiple classes, multiclass classification is used to predict mutually exclusive labels.
+- For example, a penguin can't be both a Gentoo and an Adelie.
+- However, there are also some algorithms that you can use to train multilabel classification models, in which there may be more than one valid label for a single observation. 
+- For example, a movie could potentially be categorized as both science fiction and comedy.
+### Unsupervised Machine Learning
+- Unsupervised ML is an algorithm in which the training data only includes the feature values but no known labels.
+- It determines the relationships between the features of the observations in the training data.
+#### Clustering
+- Clustering is an algorithm that identifies the similarities between observations based on the features and groups them into discrete clusters.
+- The most common form of unsupervised ML is clustering.
+##### For example
+- Group similar flowers based on their size, number of leaves, and number of petals.
+
+- In some cases, clustering is used to determine the set of classes that exists.
+- Then these classes can act as label of the observations which can be used to train classification model.
+##### For example
+- You have observation of all the customers without any labels.
+- You can first use clustering to segment the customers into groups, analyze the groups to identify and categorize different classes of customers.
+- Now you have the observation along with the label (that is the class in which each observation belongs).
+- You can use this labeled observations to train a classification model.
+- This model can be further used to predict the class in which the new customer belongs.
+
+![Clustering Model X Classification Model](../assets/clusterclassification.png)
