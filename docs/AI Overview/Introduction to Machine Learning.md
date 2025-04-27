@@ -101,3 +101,104 @@ There are multiple types of machine learning, and you must apply the appropriate
 - This model can be further used to predict the class in which the new customer belongs.
 
 ![Clustering Model X Classification Model](../assets/clusterclassification.png)
+
+## Regression
+- Regression models are trained to predict the label values based on the training data.
+- The training data includes both features and known labels.
+- The process for training any supervised ML model involves multiple iterations in which you use an appropriate algorithm to train a model usually with some parameterized settings, evaluate the predictive performance and refine the model by repeating the training process with different algorithms and parameters, until you achieve an acceptable level of predictive accuracy.
+
+## Understanding algorithm and its elements 
+Consider the first algorithm to be $\mathcal{Y} = \beta_0 + \beta_1\mathcal{X} + \varepsilon$. In this algorithm, y is the predictive label and $\beta_0 + \beta_1\mathcal{X} + \varepsilon$ is the algorithm including $\beta_0$ and $\beta_1$ as parameters. 
+
+![Regression Algorithm Graph](../assets/regressionalgograph.png)
+
+- The value of $\mathcal{Y}$ (prediction) will increase/decrease as the value of $x$ (features) increases.
+- Hence, $\mathcal{Y}$ is either directly or inversely proportional to $x$.
+- In our case, the value of number of ice creams will increase with the increase in temperature.
+- Therefore, $\mathcal{Y}\propto\mathcal{X}$.
+- Therefore, $\mathcal{Y} = \beta_1 * \mathcal{X}$; where
+	- $\beta_1$ = constant of proportionality. Also called the slope of the line describing the relationship between $\mathcal{Y}$ and $\mathcal{X}$.
+- Further, there might a starting point at which the value of $\mathcal{Y}$ starts.
+- In our case, we can call it the base value or the number of ice creams that are sold regardless of the temperature. This value can also be 0.
+- Lets represent this value by $\beta_0$.
+- It is the y-intercept of the line.
+- Now the equation becomes $\mathcal{Y} = \beta_0 + \beta_1\mathcal{X} + \varepsilon$; where
+	- $\varepsilon$ = The difference between the predicted label and the actual label of the feature.
+### Four key elements of training process for supervised ML model
+#### Step 1
+1. Randomly split the training data into multiple groups.
+2. This creates various groups of data which can be used to train the model.
+3. Hold back a group of data that can be further used to validate the trained model.
+#### Step 2
+1. Use an algorithm to fit the training data into a model.
+2. In case of a regression model, use a regression algorithm such as linear regression. In the above example, linear regression is used to explain all the element of the algorithm.
+#### Step 3
+1. Use the group of data that we held, to validate the model by letting it predict the labels for the features.
+#### Step 4
+1. Compare the known actual labels in the group of data, with the labels that model predicted.
+2. Then aggregate the differences between the predicted and actual label, to calculate a metric that indicates how accurately the model predicted for the validation data.
+
+- After each train, validate and evaluate iteration.
+- You can repeat the process with different algorithms and parameters, until an acceptable evaluation metric is achieved.
+
+![Regression Algorithm Graph](../assets/supervisedmltraining.png)
+
+To understand all the steps and actions with a practical example, please check [this page on Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/fundamentals-machine-learning/4-regression#example---regression). It walks through each step along with a sample data to demonstrate the concept.
+### Regression evaluation metrics
+- Based on the predicted and actual values, you can calculate some common metrics that are used to evaluate a regression model.
+- For understanding each metrics, consider the following observations for the ice cream sales.
+
+| Temperature ($\mathcal{X}$) | Actual sales ($\mathcal{Y}$) | Predicted sales ($\hat{\mathcal{Y}}$) | Different ($\lvert\hat{\mathcal{Y}} - \mathcal(Y)\lvert$) |
+| --------------------------- | ---------------------------- | ------------------------------------- | --------------------------------------------------------- |
+| 52                          | 0                            | 2                                     | 2                                                         |
+| 67                          | 14                           | 17                                    | 3                                                         |
+| 70                          | 23                           | 20                                    | 3                                                         |
+| 73                          | 22                           | 23                                    | 1                                                         |
+| 78                          | 26                           | 28                                    | 2                                                         |
+| 83                          | 36                           | 33                                    | 3                                                         |
+#### Mean Absolute Error (MAE)
+- To calculate MAE, we need to get the unit different between the actual label and predicted label for each observation.
+- This difference is absolute. Hence, it doesnt matter if the actual label is above the predicted label or below.
+- For example, both the differences, that is, -3 and +3, will be considered 3.
+- The value of MAE is the average of all the absolute differences.
+- Hence, the name Mean Absolute Error.
+- In the ice cream example, the mean (average) of the absolute errors (2, 3, 3, 1, 2, and 3) is 2.33.
+#### Mean Squared Error (MSE)
+- The Mean Absolute Error takes into account, all the discrepancies between the predicted and actual labels equally.
+- However, it is more desirable to have a model that consistently makes small errors vs a model that makes fewer but large errors.
+- One way of getting that metrics that amplifies the large errors is by squaring the individual errors and calculating the mean of the squared values.
+- This metric is known as Mean Squared Error.
+- In our ice cream example, the mean of the squared absolute values (which are 4, 9, 9, 1, 4, and 9) is 6.
+#### Root Mean Squared Error (RMSE)
+- The Mean Squared Error helps take the magnitude of errors into account, but because it squares the error values, the resulting metric no longer represents the quantity measured by the label.
+- To get the error in terms of the unit of label, we need to calculate the square root of MSE.
+- It produces a metric called Root Mean Squared Error.
+- In this case √6, which is 2.45 (ice creams).
+#### Coefficient of determination ($R^2$)
+- All the metrics so far, compare the discrepancy between the predicted and the actual value in order to evaluate the model. However, in reality, there is some natural random variance in the daily data that model takes into account.
+- To find the natural variation existing in each data, we need to have a reference point.
+- This reference point can be the average of all the data.
+- Using this reference point, we can calculate the variation that exist in the data.
+- In this case, the average of the actual sales is $\approx20.167$.
+- Now the absolute variation in each data can be calculated as 20.167, 6.167, 3.167, 2.167, 6.167 and 16.167.
+- Now we will find the RMS value of these data due to the same reasons as mentioned in Mean Square Error description.
+- The RMS value of the data is $\approx11.25$.
+- This is the variation that already exists in the data.
+- Now, we need to find the variation in the predicted data and the actual data.
+- For this one we do not need a reference value because we already have 2 entities.
+- The absolute variation in the data predicted by the model is 2, 3, 3, 1, 2, 3.
+- This was a simple calculation.
+- The RMS value of this variation is 2.45.
+- Now, the actual (or ideal) variation in the data is 11.25 and the total variation by the model is 2.45.
+- If we remove the total variation by the model from the actual variation in the data, we get 11.25 - 2.45 = 8.8.
+- This is the proportion of the variation from the actual variation that we can get from the model.
+- Hence, to calculate how well the model explains the data, we divide the variation the model is able to capture (which is 11.25−2.45=8.811.25 - 2.45 = 8.811.25−2.45=8.8) by the total variation in the data (which is 11.25).
+- The value that we get, indicates how accurate the model is.
+- This value is call the coefficient of determination, which ranges between 0 to 1.
+- 1 indicates that the model is efficiently able to get the variation that already exists in the data; while 0 indicates that the model is inefficient and it is only able to guess the mean.
+### Iterative Training
+- All the metrics explained above are used to evaluate a regression model.
+- A data scientist uses an iterative approach to repeatedly train and evaluate a model, varying:
+	- **Feature Selection and Preparation**: Choosing which features to include in the model, and calculations applied to them to help ensure a better fit.
+	- **Algorithm selection**: There are many regression algorithms
+	- **Algorithm parameters**: In case of linear regression algorithm, the parameters were $\beta_0, \beta_1$ etc. However, in general parameters means the coefficients that represents the relationship between the features and the predicted value of labels.
