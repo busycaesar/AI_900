@@ -12,7 +12,7 @@ import rehypeKatex from "rehype-katex";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Dinosaurs Website",
+  title: "AI 900 Notes",
   tagline: "Dinosaurs are cool",
   favicon: "img/favicon.ico",
 
