@@ -107,7 +107,7 @@ There are multiple types of machine learning, and you must apply the appropriate
 - The training data includes both features and known labels.
 - The process for training any supervised ML model involves multiple iterations in which you use an appropriate algorithm to train a model usually with some parameterized settings, evaluate the predictive performance and refine the model by repeating the training process with different algorithms and parameters, until you achieve an acceptable level of predictive accuracy.
 
-## Understanding algorithm and its elements 
+### Understanding algorithm and its elements 
 Consider the first algorithm to be $\mathcal{Y} = \beta_0 + \beta_1\mathcal{X} + \varepsilon$. In this algorithm, y is the predictive label and $\beta_0 + \beta_1\mathcal{X} + \varepsilon$ is the algorithm including $\beta_0$ and $\beta_1$ as parameters. 
 
 ![Regression Algorithm Graph](../assets/regressionalgograph.png)
@@ -202,3 +202,91 @@ To understand all the steps and actions with a practical example, please check [
 	- **Feature Selection and Preparation**: Choosing which features to include in the model, and calculations applied to them to help ensure a better fit.
 	- **Algorithm selection**: There are many regression algorithms
 	- **Algorithm parameters**: In case of linear regression algorithm, the parameters were $\beta_0, \beta_1$ etc. However, in general parameters means the coefficients that represents the relationship between the features and the predicted value of labels.
+## Binary Classification
+- Since classification is also a supervised ML technique, it follows the same iterative process of training, validating and evaluating models.
+- Instead of calculating the numeric values using the features like regression model, the algorithms used to train classification models calculate probability values that decides the class to which the features belong.
+- The evaluation metrics used to access the model performance, compare the predicted classes to the actual classes.
+- Binary classification algorithms are used to train a model that predicts one of the two possible tables for a single class, as the name suggests.
+- In most real world scenarios, the data observations used to train and validate the model consists of multiple feature ($\mathcal{X}$) values and a $\mathcal{Y}$ value that is either 1 or 0.
+### For Example
+- Consider the following sample data having a single feature $\mathcal{X}$ to predict whether the label $\mathcal{Y}$ is 1 or 0.
+- In the example, we use the blood glucose level of patients to predict if the patient has diabetes.
+
+| Blood glucose (x) | Diabetic? (y) |
+| ----------------- | ------------- |
+| 67                | 0             |
+| 103               | 1             |
+| 114               | 1             |
+| 72                | 0             |
+| 116               | 1             |
+| 65                | 0             |
+#### Training a binary classification model
+- To train the model, we will use an algorithm to fit the training data to a function that calculates the probability of the class label being true. That is if the patient has diabetes.
+- Probability is measured as a value between 0 and 1, such that the total probability for all the possible classes is 1.
+- For example, if the probability of a patient having diabetes is 0.7, then there is a corresponding probability of 0.3 that the patient is not diabetic.
+- There are many algorithm that can be used for binary classification, such as logistic regression, which derives a sigmoid (S-shaped) function with values between 0 and 1, like this:
+
+![Regression Algorithm Graph](../assets/sigmoid-plot.png)
+
+> [!NOTE]
+> Despite its name, in machine learning logistic regression is used for classification, not regression. The important point is the logistic nature of the function it produces, which describes an S-shaped curve between a lower and upper value (0.0 and 1.0 when used for binary classification).
+
+- The function produced by the algorithm describes the probability of $\mathcal{Y}$ being true ($\mathcal{Y}$ = 1) for a given value of $\mathcal{X}$.
+- Mathematically, you can express the function like this:
+
+	$f(\mathcal{X}) = P(\mathcal{Y}=1 | \mathcal{X})$
+
+- For the three of the six observations in the training data, we know that $\mathcal{Y}$ is definitely true, so the probability for those observations that $\mathcal{Y} = 1$ is 1 and for the other three, we know that $\mathcal{Y}$ is definitely false, so the probability that $\mathcal{Y} = 1$ is 0.
+- The S-shaped curve describes the probability distribution, so that plotting a value of $\mathcal{X}$ on the line identifies the corresponding probability of $\mathcal{Y} = 1$.
+- The diagram includes a horizontal line to indicate the threshold at which a model based on this function will predict true or false. 
+- The threshold lies at the mid-point for $\mathcal{Y}$ $(P(\mathcal{Y}) = 0.5)$ .
+- For any values at this point or above, the model will predict true; while for any values below this point it will predict false.
+- For example for a patient with blood glucose level 90, the function would result in a probability value of 0.9.
+- Since 0.9 is higher than the threshold of 0.5, the model would predict true.
+- In other words, the patient is predicted to have diabetes.
+#### Evaluating a binary classification model
+- Assuming the following data were held to validate the trained model.
+
+| Blood glucose (x) | Diabetic? (y) |
+| ----------------- | ------------- |
+| 66                | 0             |
+| 107               | 1             |
+| 112               | 1             |
+| 71                | 0             |
+| 87                | 1             |
+| 89                | 1             |
+- Applying the logistic function we derived previously to the $\mathcal{X}$ values results in the following plot.
+
+![Classification Predictions](../assets/classification-predictions.png)
+
+- Based on whether the probability calculated by the function is above or below the threshold, the model generates a predicted label of 1 or 0 for each observation.
+- Following is the comparison of predicted class labels ($\hat{\mathcal{Y}}$) to the actual class labels ($\mathcal{Y}$).
+
+| Blood glucose (x) | Actual diabetes diagnosis (y) | Predicted diabetes diagnosis (ŷ) |
+| ----------------- | ----------------------------- | -------------------------------- |
+| 66                | 0                             | 0                                |
+| 107               | 1                             | 1                                |
+| 112               | 1                             | 1                                |
+| 71                | 0                             | 0                                |
+| 87                | 1                             | 0                                |
+| 89                | 1                             | 1                                |
+#### Binary classification evaluation metrics
+- The first step in evaluation metrics for a binary classification models is usually to create a matrix of the number of correct and incorrect predictions for each possible class label.
+
+![Binary Classification Evaluation Metrics](../assets/binary-confusion-matrix.png)
+
+- This visualization is known as confusion matrix and it shows prediction totals where:
+	- ŷ=0 and y=0: True negatives (TN)
+	- ŷ=1 and y=0: False positives (FP)
+	- ŷ=0 and y=1: False negatives (FN)
+	- ŷ=1 and y=1: True positives (TP)
+- The arrangement of the confusion matrix is such that correct (true) predictions are shown in a diagonal line from top-left to bottom-right.
+- Often, color-intensity is used to indicate the number of predictions in each cell, so a quick glance at a model that predicts well should reveal a deeply shaded diagonal trend.
+##### Accuracy
+- This is the simplest metric that you can calculate from the confusion matrix is accuracy.
+- It can be calculated by dividing total right predictions from total predictions.
+- More formally formulated (TN + TP) / (TN + FN + TP + FP)
+- In our case, the calculation is 5 / 6 = 0.83.
+- Hence, for our validation data, the classification model produced correct predictions 83% of the time.
+- Accuracy might sound like a good evaluation metric but consider this example. Suppose 11% of the population has diabetes and 89% of the population do not. You could create a model that always predicts 0 and its accuracy would be 89%, even though it makes no real attempt to differentiate between patients by evaluating their features.
+- What we really need is a deeper understanding of how the model performs at predicting 1 for positive cases and 0 for negative cases.
