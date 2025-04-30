@@ -116,7 +116,7 @@ Consider the first algorithm to be $\mathcal{Y} = \beta_0 + \beta_1\mathcal{X} +
 - Hence, $\mathcal{Y}$ is either directly or inversely proportional to $x$.
 - In our case, the value of number of ice creams will increase with the increase in temperature.
 - Therefore, $\mathcal{Y}\propto\mathcal{X}$.
-- Therefore, $\mathcal{Y} = \beta_1 * \mathcal{X}$; where
+- Therefore, $\mathcal{Y} = \beta_1 \times \mathcal{X}$; where
 	- $\beta_1$ = constant of proportionality. Also called the slope of the line describing the relationship between $\mathcal{Y}$ and $\mathcal{X}$.
 - Further, there might a starting point at which the value of $\mathcal{Y}$ starts.
 - In our case, we can call it the base value or the number of ice creams that are sold regardless of the temperature. This value can also be 0.
@@ -220,7 +220,7 @@ To understand all the steps and actions with a practical example, please check [
 | 72                | 0             |
 | 116               | 1             |
 | 65                | 0             |
-#### Training a binary classification model
+### Training a binary classification model
 - To train the model, we will use an algorithm to fit the training data to a function that calculates the probability of the class label being true. That is if the patient has diabetes.
 - Probability is measured as a value between 0 and 1, such that the total probability for all the possible classes is 1.
 - For example, if the probability of a patient having diabetes is 0.7, then there is a corresponding probability of 0.3 that the patient is not diabetic.
@@ -244,7 +244,7 @@ To understand all the steps and actions with a practical example, please check [
 - For example for a patient with blood glucose level 90, the function would result in a probability value of 0.9.
 - Since 0.9 is higher than the threshold of 0.5, the model would predict true.
 - In other words, the patient is predicted to have diabetes.
-#### Evaluating a binary classification model
+### Evaluating a binary classification model
 - Assuming the following data were held to validate the trained model.
 
 | Blood glucose (x) | Diabetic? (y) |
@@ -270,7 +270,7 @@ To understand all the steps and actions with a practical example, please check [
 | 71                | 0                             | 0                                |
 | 87                | 1                             | 0                                |
 | 89                | 1                             | 1                                |
-#### Binary classification evaluation metrics
+### Binary classification evaluation metrics
 - The first step in evaluation metrics for a binary classification models is usually to create a matrix of the number of correct and incorrect predictions for each possible class label.
 
 ![Binary Classification Evaluation Metrics](../assets/binary-confusion-matrix.png)
@@ -282,7 +282,7 @@ To understand all the steps and actions with a practical example, please check [
 	- ŷ=1 and y=1: True positives (TP)
 - The arrangement of the confusion matrix is such that correct (true) predictions are shown in a diagonal line from top-left to bottom-right.
 - Often, color-intensity is used to indicate the number of predictions in each cell, so a quick glance at a model that predicts well should reveal a deeply shaded diagonal trend.
-##### Accuracy
+#### Accuracy
 - This is the simplest metric that you can calculate from the confusion matrix is accuracy.
 - It can be calculated by dividing total right predictions from total predictions.
 - More formally formulated (TN + TP) / (TN + FN + TP + FP)
@@ -290,3 +290,32 @@ To understand all the steps and actions with a practical example, please check [
 - Hence, for our validation data, the classification model produced correct predictions 83% of the time.
 - Accuracy might sound like a good evaluation metric but consider this example. Suppose 11% of the population has diabetes and 89% of the population do not. You could create a model that always predicts 0 and its accuracy would be 89%, even though it makes no real attempt to differentiate between patients by evaluating their features.
 - What we really need is a deeper understanding of how the model performs at predicting 1 for positive cases and 0 for negative cases.
+#### Recall
+- Recall is the metric that measures the proportion of positive cases that the model identified correctly.
+- In other words, compared to the number of patients who have diabetes, how many did the model predict to have diabetes?
+- Hence, in total 4 people had diabetes but the model predicted only 3 to have it.
+- In this case, the formula becomes, TP / (TP + FN).
+- The proportion is 0.75.
+- Therefore, the model correctly identified 75% of the patients who have diabetes.
+#### Precision
+- Precision is a similar metric to recall, but measures the proportion of predicted positive cases where the true label is actually positive.
+- Hence, the formula becomes, TP / (TP + FP).
+- The proportion is 1.
+- So 100% of the patients predicted by out model to have diabetes, do have diabetes.
+#### F1-score
+- To understand how the F1-score works, we first need to understand what is harmonic mean.
+- Harmonic mean is a type of average that is particularly useful when dealing with quantities that are defined per unit. For example, speed, density etc.
+- The arithmetic mean cannot be used for such quantities because it does not account for the unit depending on which the quantity is measure. For example, considering speech which is defined in kmph. If we use arithmetic mean, it does not take into account that for each quantity, hours spent will be different.
+- Hence, for getting the average in all such cases, harmonic mean can be used.
+- Now, let me explain how the formula for harmonic mean works.
+- Again, I will stick with the example of kmph to explain it more clearly.
+- Considering the car travels distance d at speed $\mathcal{v}_1$ and another distance d at speed $\mathcal{v}_2$.
+- Total time spend to travel distance d for with the first speed is $\mathcal{t}_1 = \mathcal{d} / \mathcal{v}_1$.
+- Similarly, total time spend to travel distance d for with the second speed is $\mathcal{t}_2 = \mathcal{d} / \mathcal{v}_2$.
+- Total distance traveled is $D = d + d = 2d$.
+- Total time taken $T = \mathcal{t}_1 + \mathcal{t}_1 = \mathcal{d} / \mathcal{v}_1 + \mathcal{d} / \mathcal{v}_2$ = $\mathcal{d}  (1/ \mathcal{v}_1 + 1 / \mathcal{v}_2)$.
+- Hence, the average speed becomes, $D / T = \frac{2d}{\mathcal{d} (1/ \mathcal{v}_1 + 1 / \mathcal{v}_2)} = \frac{2}{1/\mathcal{v}_1 + 1 / \mathcal{v}_2} = \frac{2}{(\mathcal{v}_1 + \mathcal{v}_2) / \mathcal{v}_1 \times \mathcal{v}_2} = \frac{2 \times \mathcal{v}_1 \times \mathcal{v}_2}{\mathcal{v}_1 + \mathcal{v}_1}$.
+- Hence, the formula of harmonic mean becomes the product of total number of numbers and all the numbers divided by the sum of all the numbers.
+- Coming back to F1-score, it is the harmonic average of Recall and Precision.
+- Hence, the formula is $\frac{2 \times Precision \times Recall}{Precision + Recall}$.
+- Using the formula with our sample data, the F1-score comes around 0.86.
