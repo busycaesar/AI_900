@@ -208,7 +208,7 @@ To understand all the steps and actions with a practical example, please check [
 - The evaluation metrics used to access the model performance, compare the predicted classes to the actual classes.
 - Binary classification algorithms are used to train a model that predicts one of the two possible tables for a single class, as the name suggests.
 - In most real world scenarios, the data observations used to train and validate the model consists of multiple feature ($\mathcal{X}$) values and a $\mathcal{Y}$ value that is either 1 or 0.
-### For Example
+### Sample Data
 - Consider the following sample data having a single feature $\mathcal{X}$ to predict whether the label $\mathcal{Y}$ is 1 or 0.
 - In the example, we use the blood glucose level of patients to predict if the patient has diabetes.
 
@@ -297,6 +297,7 @@ To understand all the steps and actions with a practical example, please check [
 - In this case, the formula becomes, TP / (TP + FN).
 - The proportion is 0.75.
 - Therefore, the model correctly identified 75% of the patients who have diabetes.
+- Another name for Recall is True Positive Rate.
 #### Precision
 - Precision is a similar metric to recall, but measures the proportion of predicted positive cases where the true label is actually positive.
 - Hence, the formula becomes, TP / (TP + FP).
@@ -319,3 +320,144 @@ To understand all the steps and actions with a practical example, please check [
 - Coming back to F1-score, it is the harmonic average of Recall and Precision.
 - Hence, the formula is $\frac{2 \times Precision \times Recall}{Precision + Recall}$.
 - Using the formula with our sample data, the F1-score comes around 0.86.
+#### Area Under The Curve (AUC)
+- There is an equivalent metric to True Positive Rate, that is, False Positive Rate.
+- FPR is calculated as proportion of total number of people that model predicted to have diabetes, who do not have diabetes to the total number of people who do not have diabetes.
+- The TPR of our model, when the threshold is of 0.5, is 0.75 and FPR of our model, when the threshold is 0f 0.5, is 0 / 2 = 0.
+- Ofcourse if we were to change the threshold above which the model predicts true, it would affect the number of positive and negative predictions; and therefore, changing TPR and FPR metrics.
+- These metrics are often used to evaluate a model by plotting a received operator characteristics (ROC) curve that compares TPR and FPR for every possible threshold value between 0 to 1.
+
+![ROC Curve](../assets/roc-chart.png)
+
+- The ROC curve for a perfect model would go up to TPR axis on the left and then across the FPR axis at the top.
+- The available plot area for the curve is 1 X 1.
+- Therefore, the area under this perfect curve will be 1.
+- This means that the model is correct 100% of the time.
+- In contrast the dotted line represents the results that would be achieved by randomly guessing a binary label; producing an area under the curve of 0.5.
+- In other words, you could reasonably expect to guess correctly 50% of the time.
+- In our case of diabetes model, the curve above is produced, and the Area Under the Curve metric is 0.875.
+- Since the AUC is higher than 0.5, we can conclude that the model performs better at predicting whether or not a patient has diabetes than randomly guessing.
+## Multiclass Classification
+- Multiclass classification is used to predict to which of the multiple possible classes an observation belongs.
+- Since it is also a supervised ML technique, it follows the same iterative train, validate and evaluate process.
+### Sample Data
+- Multiclass classification algorithms are used to calculate probability values for multiple class labels, enabling a model to predict the most probable class for a given observation.
+- Following are some sample data for penguins.
+- The data includes flipper length (Features, $\mathcal{X}$) of each penguin along with the penguin following species (Label, $\mathcal{Y}$).
+	- 0: Adelie
+	- 1: Gentoo
+	- 2: Chinstrap
+
+| **Flipper length (x)** | **Species (y)** |
+| ---------------------- | --------------- |
+| 167                    | 0               |
+| 172                    | 0               |
+| 225                    | 2               |
+| 197                    | 1               |
+| 189                    | 1               |
+| 232                    | 2               |
+| 158                    | 0               |
+### Training a multiclass classification model
+- To train a multiclass classification model, we need to use an algorithm to fit the training data to a function that calculates a probability value for each possible class.
+- Following are the algorithms you can use to do this:
+	- One-vs-Rest (OvR) algorithms
+	- Multinomial algorithms.
+#### One-vs-Rest (OvR) algorithms
+- One-vs-Rest algorithms train a binary classification function for each class, each calculating the probability that the observation is an example of the target class.
+- Each function calculates the probability of the observation being a specific class compared to any other class.
+- In our case, the algorithm would create the following binary classification functions:
+	- $f^0(\mathcal{X}) = P(\mathcal{Y}=0 | \mathcal{X})$
+	- $f^1(\mathcal{X}) = P(\mathcal{Y}=1 | \mathcal{X})$
+	- $f^2(\mathcal{X}) = P(\mathcal{Y}=2 | \mathcal{X})$
+	The probability that the outcome y equals k, given the input x.
+- Each algorithm produces a sigmoid function that calculates a probability value between 0.0 and 1.0.
+- A model trained using this kind of algorithm predicts the class for the function that produces the highest probability output.
+#### Multinomial Algorithms
+- The alternative approach is to use Multinomial Algorithms that create a single function that returns a multi-valued output.
+- The output is a vector (an array of values) that contains the probability for all possible classes, with a probability score for each class which when totaled add up to 1.
+	$f(\mathcal{X}) = [P(\mathcal{Y}=0|\mathcal{X}),P(\mathcal{Y}=1|\mathcal{X}),P(\mathcal{Y}=2|\mathcal{X})]$ 
+- Regardless of which type of algorithm is used, the model uses the resulting function to determine the most probable class for a given set of featues ($\mathcal{X}$) and predicts the corresponding class label ($\mathcal{Y}$).
+### Evaluating a multiclass classification model
+- Following is the sample data observed for a validated multiclass classifier.
+
+| Flipper length (x) | Actual species (y) | Predicted species (ŷ) |
+| ------------------ | ------------------ | --------------------- |
+| 165                | 0                  | 0                     |
+| 171                | 0                  | 0                     |
+| 205                | 2                  | 1                     |
+| 195                | 1                  | 1                     |
+| 183                | 1                  | 1                     |
+| 221                | 2                  | 2                     |
+| 214                | 2                  | 2                     |
+- The confusion matrix for a multclass classifier is similar to that of a binary classifier, except that it shows the number of predictions for each combination of predicted ($\hat{\mathcal{Y}}$) and the actual class labels ($\mathcal{Y}$).
+
+![Multiclass Confusion Matrix](../assets/multiclass-confusion-matrix.png)
+
+From this confusion matrix we can determine the metrics for each individual class as follows:
+
+| Class | TP  | TN  | FP  | FN  | Accuracy | Recall | Precision | F1-Score |
+| ----- | --- | --- | --- | --- | -------- | ------ | --------- | -------- |
+| **0** | 2   | 5   | 0   | 0   | 1.0      | 1.0    | 1.0       | 1.0      |
+| **1** | 2   | 4   | 1   | 0   | 0.86     | 1.0    | 0.67      | 0.8      |
+| **2** | 2   | 4   | 0   | 1   | 0.86     | 0.67   | 1.0       | 0.8      |
+- To calculate the overall accuracy, recall, and precision metrics, you use the total of the TP, TN, FP, and FN metrics:
+	- Overall accuracy = (13+6)÷(13+6+1+1) = 0.90
+	- Overall recall = 6÷(6+1) = 0.86
+	- Overall precision = 6÷(6+1) = 0.86
+- The overall F1-score is calculated using the overall recall and precision metrics:
+	- Overall F1-score = (2x0.86x0.86)÷(0.86+0.86) = 0.86
+## Clustering
+- Clustering is a form of unsupervised ML in which observations as grouped into clusters based on similarities in data values or features.
+- This kind of ML is called unsupervised because it does not make user of previously known label values to train a model.
+- In clustering model, the label is the cluster to which the observation is assigned, based only on its features.
+### Sample Data
+- Following is the sample data of flowers that records the number of leaves and petals on each flower.
+
+![Flowers](../assets/flowers.png)
+
+- There are no known labels in the dataset.
+- The goal is not to identify the species of each flower; but to group similar flowers together based on the number of leaves and petals.
+
+| Leaves ($\mathcal{X}_1$) | Petals ($\mathcal{X}_2$) |
+| ------------------------ | ------------------------ |
+| 0                        | 5                        |
+| 0                        | 6                        |
+| 1                        | 3                        |
+| 1                        | 3                        |
+| 1                        | 6                        |
+| 1                        | 8                        |
+| 2                        | 3                        |
+| 2                        | 7                        |
+| 2                        | 8                        |
+### Training a clustering model
+- There are multiple algorithms you can use for clustering.
+- One of the most commonly used algorithms is K-Means clustering.
+- It consists of the following steps:
+#### Step 1:
+1. The feature ($\mathcal{X}$) values are vectorized to define n-dimensional coordinates; where n is the number of features.
+2. In the flower example, we have two features: Number of leaves ($\mathcal{X_1}$) and number of petals ($\mathcal{X_2}$).
+3. Hence, the feature vector has 2 coordinates that we can use to conceptually plot the data points in two-dimensional space ($[\mathcal{X}_1,\mathcal{X}_2]$).
+#### Step 2:
+1. Now, you need to decide the number of clusters required.
+2. This value is K.
+3. Then K points are plotted at random coordinates.
+4. These points become the center points for each cluster, so they are called centroids.
+#### Step 3:
+1. Each data point (in this case, flower) is assigned to its nearest centroid.
+#### Step 4:
+1. Each centroid is moved to the center of the data points assigned to it based on the mean distance between the points.
+#### Step 5:
+1. After the centroid is moved, the data points may now be closer to a different centroid.
+2. Hence, the data points are reassigned to clusters based on the new closest centroid.
+#### Step 6:
+1. The centroid movement and the cluster reallocation steps are repeated until the clusters become stable or a predetermined maximum number of iterations is reached.
+
+![Clustering Animation](../assets/clustering.gif)
+
+### Evaluating a clustering model
+- Since there is no known label with which to compare the predicted cluster assignment, evaluation of a clustering model is based on my well the resulting clusters are separated from one another.
+- Following metrics can be used to evaluate this separation.
+	- Average distance to cluster center: How close, on average, each point in the cluster is to the centroid of the cluster.
+	- Average distance to other center: How close, on average, each point in the cluster is to the centroid of all other clusters.
+	- Maximum distance to cluster center: The furthest distance between a point in the cluster and its centroid.
+	- Silhouette: A value between -1 and 1 that summarizes the ratio of distance between points in the same cluster and points in different clusters (The closer to 1, the better the cluster separation).
