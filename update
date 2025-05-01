@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Add changes to the stage"
+git add .
+
+# Get current date and time
+current_date=$(date "+%Y-%m-%d %H:%M:%S")
+
+echo "Commit changes with date and time"
+git commit -m "Add more notes - $current_date"
+
+echo "Push changes to github"
+git push origin Master
+
+echo "Deploy changes on the website"
+npm run deploy

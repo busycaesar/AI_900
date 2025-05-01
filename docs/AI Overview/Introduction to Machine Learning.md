@@ -592,3 +592,15 @@ f3(13) = 1 / (1 + e^-13) ≈ 0.999998  => Very likely to turn on the cooler
 	- Since the log values becomes negative, we have a negative sign in the formula to compensate.
 	- Further, we multiply the log value of the predicted class probability so that we can eliminate all the other class probability since their actual value will be 0.
 	- This is how, this loss formula helps us evaluate the networks.
+#### Step 5:
+1. Since the entire network is essentially one large nested function, differential calculus can be used to evaluate how the loss can be changed with respect to the change in weights $\frac{dL}{dw}$, resulting in optimizing the function.
+2. The specific optimization technique can vary, but usually involves a gradient descent approach in which each weight is increased or decrease to minimize the loss.
+#### Step 6:
+1. The changes to the weights are backpropagated to the layers in the network, replacing the previously used values.
+#### Step 7:
+1. This process is repeated over multiple iterations, known as epochs, until the loss is minimized and the model predicts acceptably accurately.
+
+> [!NOTE]
+> While its easier to think of each case in the training data being passed through the network one at a time, in reality the data is batched into matrices and processed using linear algebraic calculations. For this reason, neural network training is best performed on computers with graphical processing units (GPUs) that are optimized for vector and matrix manipulation.
+
+## Transformers
