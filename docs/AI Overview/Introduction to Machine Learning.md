@@ -461,3 +461,134 @@ From this confusion matrix we can determine the metrics for each individual clas
 	- Average distance to other center: How close, on average, each point in the cluster is to the centroid of all other clusters.
 	- Maximum distance to cluster center: The furthest distance between a point in the cluster and its centroid.
 	- Silhouette: A value between -1 and 1 that summarizes the ratio of distance between points in the same cluster and points in different clusters (The closer to 1, the better the cluster separation).
+## Deep Learning
+- Deep Learning is an advanced form of ML that tries to emulate the way human brain learns.
+- The key to deep learning is the creation of artificial neural network that simulates electrochemical activity in biological neurons by using mathematical functions as should here.
+
+| Biological neural network                                                                                                                                         | Artificial neural network                                                                                                                                                        |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Diagram of a natural neural network.](https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/biological-neural-network.png) | ![Diagram of an artificial neural network.](https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/artificial-neural-network.png)            |
+| Neurons fire in response to electrochemical stimuli. When fired, the signal is passed to connected neurons.                                                       | Each neuron is a function that operates on an input value (x) and a weight (w). The function is wrapped in an activation function that determines whether to pass the output on. |
+- Artificial Neural Networks are made up of multiple layers of neurons
+- It is like a deeply nested function.
+- Due to such an architecture, this technique is referred to as deep learning and the models produced by it are often referred to as deep neural networks (DNNs).
+- DNNs cal be used or many kinds of ML problems including regression and classification.
+- More specialized DNNs can also be used for Natural Language Processing and Computer Vision.
+
+- Just like other ML techniques discussed in this module, deep learning involves fitting some training data to a function that can predict the label ($\mathcal{Y}$) based on the value of one or more features ($\mathcal{X}$).
+- The function ($f(\mathcal{X})$) is the outer layer of the nested function in which each layer of the neural network encapsulates functions that operate on $\mathcal{X}$ and the weight $\mathcal{w}$ values associated with them.
+- Lets visualize this iterative function,
+	$f(\mathcal{X}) = f3(f2(f1(\mathcal{X})))$  
+- Each $fi()$ is a layer in the network.
+- Considering a concrete example,
+	- Input feature `x = temperature`
+	- Output label `y = 1` means "Turn on Cooler", `y = 0` means "Open Window"
+- Lets simulate a neural network with 3 layers, and each layer is a function.
+
+```python
+def f1(x):  # Layer 1: Multiply input by weight and add bias
+    w1 = 0.4
+    b1 = 1.0
+    return x * w1 + b1
+
+def f2(x):  # Layer 2: Apply activation (ReLU)
+    return max(0, x)
+
+def f3(x):  # Layer 3: Final output using sigmoid
+    import math
+    return 1 / (1 + math.exp(-x))  # Sigmoid to get probability
+```
+
+- Now we define final nested function,
+
+```python
+def f(x):
+    return f3(f2(f1(x)))  # Apply layer 1, then 2, then 3
+```
+
+- Try with `x = 30` temperature,
+
+```python
+print(f(30))  # Should give a value between 0 and 1
+```
+
+- Here is a walk through of it.
+
+```txt
+x = 30
+f1(30) = 30 * 0.4 + 1.0 = 13
+f2(13) = max(0, 13) = 13  (ReLU passes it through)
+f3(13) = 1 / (1 + e^-13) ≈ 0.999998  => Very likely to turn on the cooler
+```
+
+### Sample Data
+- Following is the example in which a neural network is used to define a classification model for penguin species.
+
+![Deep Classification](../assets/deep-classification.png)
+
+- The feature data (x) consists of some measurements of a penguin. Specifically, the measurements are:
+	- The length of the penguin's bill.
+	- The depth of the penguin's bill.
+	- The length of the penguin's flippers.
+	- The penguin's weight.
+
+- In this case, x is a vector of four values, or mathematically, $\mathcal{X}=[\mathcal{X}1,\mathcal{X}2,\mathcal{X}3,\mathcal{X}4]$.
+- The label we are trying to predict (y) is the species of the penguin, and that there are three possible species it could be:
+	- Adelie
+	- Gentoo
+	- Chinstrap
+
+- This is an example of a classification problem, in which the ML model must predict the most probable class, to which an observation belongs.
+- A classification model accomplishes this by predicting a label that consist of the probability for each class.
+- In other words, y is a vector of three probability values; one for each possible classes: $[P(\mathcal{y}=0|\mathcal{x}), P(\mathcal{y}=1|\mathcal{x}), P(\mathcal{y}=2|\mathcal{x})]$ 
+
+- The process of inferencing a predicted penguin class using this network is:
+#### Step 1
+1. The feature vector for a penguin observation is fed into the input layer of the neural network.
+2. This input layer consists of a neuron for each $\mathcal{X}$ value.
+3. In this example, the following $\mathcal{X}$ vector is used as the input: \[ 37.3, 16.8, 19.2, 30.0 \]
+#### Step 2
+1. Each functions on the first layer of neurons calculate a weighted sum by combining the $\mathcal{X}$ value and w weight.
+2. This value is then passed to the activation function which further determines if the value meets the threshold to be passed to the next layer.
+#### Step 3
+1. Each neuron in the layer is connected to all the neurons in the next layer.
+2. This architecture is sometimes called a fully connected network.
+3. Therefore, the results of each layer are fed forward through the network until they reach the output layer.
+#### Step 4
+1. The output layer produces a vector of values.
+2. In this case, it uses softmax or similar function to calculate the probability distribution for the three possible classes of penguin.
+3. In this example the output vector is \[0.2, 0.7, 0.1\].
+#### Step 5:
+1. The elements of the vector produced by the output layer represent the probabilities for classes 0, 1 and 2.
+2. Since the second value is the highest, so the model predicts that the species of the penguin is 1.
+
+![Neural Network](../assets/neural-network.png)
+
+### How does a Neural Network Learn?
+- The weights in the neural network are central to how it calculates the predicted value for labels.
+- During the training process, the model learn the weights that will result in the most accurate predictions.
+#### Step 1:
+1. The training and validation datasets are defined and the training features are fed into the input layer.
+#### Step 2:
+1. The neurons in each layer of the network apply their weights which are initially assigned randomly.
+2. Further, the neurons feed the data through the network.
+#### Step 3:
+1. The output layer produces a vector containing the calculated values for $\hat{\mathcal{Y}}$.
+2. For example, an output for a penguin class prediction might be \[0.3, 0.1, 0.6\].
+#### Step 4:
+1. A loss function is used to compare the predicted $\hat{\mathcal{Y}}$ values to known $\mathcal{Y}$ values and aggregate the difference which is known as loss.
+2. For example, for the output in previous step, if we already know that the class is 2, then the $\mathcal{Y}$ should be \[0.0, 0.0, 1.0\].
+3. Therefore, the absolute different between known class and predicted class is \[0.3, 0.1, 0.4\].
+4. In reality the loss function calculates the aggregate variance for multiple cases and summarizes it as a single loss value.
+	- The most common loss function to use, in this case is Categorical Cross-Entropy Loss.
+	- The formula for this function is, $Loss = - \sum_{i=1}^{c}\mathcal{Y}_i . log(\hat{\mathcal{Y}_i})$.
+	- Lets understand this formula.
+	- First important thing that we need is to know how much is the different between the predicted class probability has actual class.
+	- This difference is called Loss.
+	- If the difference is 0, there is no loss and its perfect. If the difference is 0.2, the loss is small. If the difference is 0.6, the loss is medium and if the difference is 1, the loss is big.
+	- Now to understand the loss, we need a formula that gives low values when the prediction is close to the true answer; whereas gives high value when the prediction is far off.
+	- `log` is something that can help with this requirement because when the value is 1, its log value is 0, and as the value decreases to 0, its log value becomes increasingly negative.
+	- This means that as the predicted value gets further from the true value, the log value increases exponentially, making the loss grow larger, which is exactly what we want when a prediction is farther from the true label.
+	- Since the log values becomes negative, we have a negative sign in the formula to compensate.
+	- Further, we multiply the log value of the predicted class probability so that we can eliminate all the other class probability since their actual value will be 0.
+	- This is how, this loss formula helps us evaluate the networks.
