@@ -228,8 +228,9 @@ To understand all the steps and actions with a practical example, please check [
 
 ![Regression Algorithm Graph](../assets/sigmoid-plot.png)
 
-> [!NOTE]
-> Despite its name, in machine learning logistic regression is used for classification, not regression. The important point is the logistic nature of the function it produces, which describes an S-shaped curve between a lower and upper value (0.0 and 1.0 when used for binary classification).
+:::note
+Despite its name, in machine learning logistic regression is used for classification, not regression. The important point is the logistic nature of the function it produces, which describes an S-shaped curve between a lower and upper value (0.0 and 1.0 when used for binary classification).
+:::
 
 - The function produced by the algorithm describes the probability of $\mathcal{Y}$ being true ($\mathcal{Y}$ = 1) for a given value of $\mathcal{X}$.
 - Mathematically, you can express the function like this:
