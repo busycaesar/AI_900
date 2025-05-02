@@ -6,10 +6,17 @@ git add .
 # Get current date and time
 current_date=$(date "+%Y-%m-%d %H:%M:%S")
 
-echo "Commit changes with date and time"
-git commit -m "Add more notes - $current_date"
+# Check if a commit message was provided
+if [ -n "$1" ]; then
+  commit_message="$1 - $current_date"
+else
+  commit_message="Add more notes - $current_date"
+fi
 
-echo "Push changes to github"
+echo "Commit changes with message: $commit_message"
+git commit -m "$commit_message"
+
+echo "Push changes to GitHub"
 git push origin Master
 
 echo "Deploy changes on the website"
