@@ -234,9 +234,9 @@ Despite its name, in machine learning logistic regression is used for classifica
 
 - The function produced by the algorithm describes the probability of $\mathcal{Y}$ being true ($\mathcal{Y}$ = 1) for a given value of $\mathcal{X}$.
 - Mathematically, you can express the function like this:
-
-	$f(\mathcal{X}) = P(\mathcal{Y}=1 | \mathcal{X})$
-
+$$
+f(\mathcal{X}) = P(\mathcal{Y}=1 | \mathcal{X})
+$$
 - For the three of the six observations in the training data, we know that $\mathcal{Y}$ is definitely true, so the probability for those observations that $\mathcal{Y} = 1$ is 1 and for the other three, we know that $\mathcal{Y}$ is definitely false, so the probability that $\mathcal{Y} = 1$ is 0.
 - The S-shaped curve describes the probability distribution, so that plotting a value of $\mathcal{X}$ on the line identifies the corresponding probability of $\mathcal{Y} = 1$.
 - The diagram includes a horizontal line to indicate the threshold at which a model based on this function will predict true or false. 
@@ -315,8 +315,13 @@ Despite its name, in machine learning logistic regression is used for classifica
 - Total time spend to travel distance d for with the first speed is $\mathcal{t}_1 = \mathcal{d} / \mathcal{v}_1$.
 - Similarly, total time spend to travel distance d for with the second speed is $\mathcal{t}_2 = \mathcal{d} / \mathcal{v}_2$.
 - Total distance traveled is $D = d + d = 2d$.
-- Total time taken $T = \mathcal{t}_1 + \mathcal{t}_1 = \mathcal{d} / \mathcal{v}_1 + \mathcal{d} / \mathcal{v}_2$ = $\mathcal{d}  (1/ \mathcal{v}_1 + 1 / \mathcal{v}_2)$.
-- Hence, the average speed becomes, $D / T = \frac{2d}{\mathcal{d} (1/ \mathcal{v}_1 + 1 / \mathcal{v}_2)} = \frac{2}{1/\mathcal{v}_1 + 1 / \mathcal{v}_2} = \frac{2}{(\mathcal{v}_1 + \mathcal{v}_2) / \mathcal{v}_1 \times \mathcal{v}_2} = \frac{2 \times \mathcal{v}_1 \times \mathcal{v}_2}{\mathcal{v}_1 + \mathcal{v}_1}$.
+- Total time taken 
+$$
+T = \mathcal{t}_1 + \mathcal{t}_1 = \mathcal{d} / \mathcal{v}_1 + \mathcal{d} / \mathcal{v}_2$ = $\mathcal{d}  (1/ \mathcal{v}_1 + 1 / \mathcal{v}_2)
+$$
+- Hence, the average speed becomes, 
+$$D / T = \frac{2d}{\mathcal{d} (1/ \mathcal{v}_1 + 1 / \mathcal{v}_2)} = \frac{2}{1/\mathcal{v}_1 + 1 / \mathcal{v}_2} = \frac{2}{(\mathcal{v}_1 + \mathcal{v}_2) / \mathcal{v}_1 \times \mathcal{v}_2} = \frac{2 \times \mathcal{v}_1 \times \mathcal{v}_2}{\mathcal{v}_1 + \mathcal{v}_1}
+$$
 - Hence, the formula of harmonic mean becomes the product of total number of numbers and all the numbers divided by the sum of all the numbers.
 - Coming back to F1-score, it is the harmonic average of Recall and Precision.
 - Hence, the formula is $\frac{2 \times Precision \times Recall}{Precision + Recall}$.
@@ -541,8 +546,7 @@ f3(13) = 1 / (1 + e^-13) ≈ 0.999998  => Very likely to turn on the cooler
 
 - This is an example of a classification problem, in which the ML model must predict the most probable class, to which an observation belongs.
 - A classification model accomplishes this by predicting a label that consist of the probability for each class.
-- In other words, y is a vector of three probability values; one for each possible classes: $[P(\mathcal{y}=0|\mathcal{x}), P(\mathcal{y}=1|\mathcal{x}), P(\mathcal{y}=2|\mathcal{x})]$ 
-
+- In other words, y is a vector of three probability values; one for each possible classes: $$[P(\mathcal{y}=0|\mathcal{x}), P(\mathcal{y}=1|\mathcal{x}), P(\mathcal{y}=2|\mathcal{x})]$$
 - The process of inferencing a predicted penguin class using this network is:
 #### Step 1
 1. The feature vector for a penguin observation is fed into the input layer of the neural network.
@@ -582,7 +586,8 @@ f3(13) = 1 / (1 + e^-13) ≈ 0.999998  => Very likely to turn on the cooler
 3. Therefore, the absolute different between known class and predicted class is \[0.3, 0.1, 0.4\].
 4. In reality the loss function calculates the aggregate variance for multiple cases and summarizes it as a single loss value.
 	- The most common loss function to use, in this case is Categorical Cross-Entropy Loss.
-	- The formula for this function is, $Loss = - \sum_{i=1}^{c}\mathcal{Y}_i . log(\hat{\mathcal{Y}_i})$.
+	- The formula for this function is, 
+$$Loss = - \sum_{i=1}^{c}\mathcal{Y}_i . log(\hat{\mathcal{Y}_i})$$
 	- Lets understand this formula.
 	- First important thing that we need is to know how much is the different between the predicted class probability has actual class.
 	- This difference is called Loss.
