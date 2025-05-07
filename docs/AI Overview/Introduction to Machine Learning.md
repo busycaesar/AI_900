@@ -717,22 +717,22 @@ allowfullscreen></iframe>
 - While it might be possible if the embeddings have 2 to 3 values since we can plot 2 dimensional or 3 dimensional graph easily.
 - For a multidimensional graph, we better look for a multiple that can help us calculate the cosine value of two lines formed by two embeddings.
 - In euclidean space, the dot product of two non-zero vectors A and B is defined as:
-$$
-\vec{A}\cdot\vec{B} = \lvert\lvert\vec{A}\rvert\rvert\cdot\lvert\lvert\vec{B}\rvert\rvert\cdot\cos(\theta)
-$$
+
+	$\vec{A}\cdot\vec{B} = \lvert\lvert\vec{A}\rvert\rvert\cdot\lvert\lvert\vec{B}\rvert\rvert\cdot\cos(\theta)$
+
 - Where, 
 	- $\vec{A}\cdot\vec{B}$ is the dot product of vectors A and B. 
 	- $\lvert\lvert\vec{A}\rvert\rvert$ and $\lvert\lvert\vec{B}\rvert\rvert$ are the magnitudes of vectors A and B.
 	- $\theta$ is the angle between vectors A and B.
 - This formula arises from the geometric definition of the dot product, relating it to the angle between the two vectors.
 - Therefore,
-$$
-\cos(\theta) = \frac{\vec{A}\cdot\vec{B}}{\lvert\lvert\vec{A}\rvert\rvert\cdot\lvert\lvert\vec{B}\rvert\rvert}
-$$
+
+	$\cos(\theta) = \frac{\vec{A}\cdot\vec{B}}{\lvert\lvert\vec{A}\rvert\rvert\cdot\lvert\lvert\vec{B}\rvert\rvert}$
+
 - Simplifying it,
-$$
-\cos(\theta) = \frac{\sum^n_{i=1}A_iB_i}{\sqrt{\sum_{i=0}^nA_i^2\sum_{i=0}^nB_i^2}}
-$$
+
+	$\cos(\theta) = \frac{\sum^n_{i=1}A_iB_i}{\sqrt{\sum_{i=0}^nA_i^2\sum_{i=0}^nB_i^2}}$
+
 - As indicated earlier, the more the value of cosine similarity is near to 1, the more two vectors are similar and vise versa.
 
 :::note
