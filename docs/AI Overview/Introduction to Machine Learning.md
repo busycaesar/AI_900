@@ -646,3 +646,98 @@ allowfullscreen></iframe>
 
 - In practice, the specific implementations of the architecture vary.
 - For example, the Bidirectional Encoder Representations from Transformers (BERT) model developed by Google to support their search engine uses only the encoder block, while the Generative Pretrained Transformer (GPT) model developed by OpenAI uses only the decoder block.
+### Tokenization
+- The first step in training a transformer is the decompose the training text into tokens.
+- In other words, identify the unique value for each text.
+- For simplicity, consider each word in the training text as token.
+- In reality, tokens can be generated for partial words or combination of words and punctuation.
+- For example, consider the following text.
+- `"I heard a dog bark loudly at a cat."`
+- To tokenize the text, you can identify each discrete word and assign token IDs to them.
+
+```txt
+- I (1)
+- heard (2)
+- a (3)
+- dog (4)
+- bark (5)
+- loudly (6)
+- at (7)
+- ("a" is already tokenized as 3)
+- cat (8)
+```
+
+- The sentence can now be represented with tokens: { 1 2 3 4 5 6 7 3 8 }.
+- Similarly, the sentence `"I heard a cat"` could be represented as { 1 2 3 8 }.
+- As you continue to train the model, each new token in the training text is added to the vocabulary with appropriate token IDs.
+
+```txt
+- meow (9)
+- skateboard (10)
+- *and so on...*
+```
+
+- With a sufficient large set of training text, a vocabulary of many thousands of tokens could be compiled.
+### Embeddings
+- While it may be convenient to represent tokens as simple IDs, essentially creating an index for all the words in the vocabulary, they dont tell us anything about the meaning of the words, or the relationship between them.
+- To create vocabulary that encapsulates semantic relationship between the tokens, we define contextual vectors, known as embeddings, for them.
+- Vectors are multi-valued numeric representations of information, for example, \[10, 3, 1\].
+- In this representation, each numeric element represents a particular attribute of the information.
+- If you watched the above linked video by [codebasics](https://www.youtube.com/@codebasics), you will be able to understand what embeddings are.
+- The specific categories for the element of the vectors, in a language model, are determined during training, based on how commonly words are used together or in similar contexts.
+
+- Vectors represent lines in multidimensional space, describing direction and distance along multiple axes.
+- Essentially think of the elements in an embedding vector as representing steps, along a path, in multidimensional space.
+- For example, a vector with three elements represents a path in 3-dimensional space.
+- The three values in this vector indicates the unit traveled forward/backward, left/right and up/down.
+- Overall, the vector describes the direction and distance of the path from origin to end.
+
+- Each element in the embeddings, represents some semantic attribute of the token.
+- Therefore, semantically similar tokens results in vectors that have a similar orientation or in other words, they point in the same direction.
+- A technique called "cosine similarity" is used to determine if two vectors have similar directions, regardless of distance.
+- Now to understand what did we choose cosine similarity for determine, we need to understand some geometry.
+- Basically, embeddings of each token, can be plotted into the graph with one line, since all the values in the embeddings basically are the values of each axes.
+
+- Consider an example for the embeddings of following 2 words.
+	- Love: \[1, 5\]
+	- Like: \[4, 4\]
+- Since there are only 2 values in the embeddings, we can plot it into a 2 dimentional graph as below.
+
+![Cosine Similarity Graph](../assets/cosine-similarity.png)
+
+- Hence, essentially we converted embeddings of each token into lines.
+- Now, consider the angle between these 2 lines is $\theta$.
+- If we calculate the value of $cos(\theta)$, we get a value between -1 to 1.
+- When you calculate $cos$ value of an angle between two lines, it essentially indicates, how closely, the two lines are aligned.
+- If the angle between two lines is 0, that means the lines are one on the top of other, both the lines can be said to perfectly aligning.
+- Hence the value of $cos(0)$ would be 1.
+- If there is an angle of $90^o$, the value of $cos(90)$ would be 0, and for the angle of $180^o$, the value would be -1.
+- Therefore calculating the cosine similarity between two embeddings helps us understand how close two tokens related to each other.
+- Now, one issue in finding cosine similarity is that we first need to know the angle between the lines formed by the embeddings.
+- While it might be possible if the embeddings have 2 to 3 values since we can plot 2 dimensional or 3 dimensional graph easily.
+- For a multidimensional graph, we better look for a multiple that can help us calculate the cosine value of two lines formed by two embeddings.
+- In euclidean space, the dot product of two non-zero vectors A and B is defined as:
+$$
+\vec{A}\cdot\vec{B} = \lvert\lvert\vec{A}\rvert\rvert\cdot\lvert\lvert\vec{B}\rvert\rvert\cdot\cos(\theta)
+$$
+- Where, 
+	- $\vec{A}\cdot\vec{B}$ is the dot product of vectors A and B. 
+	- $\lvert\lvert\vec{A}\rvert\rvert$ and $\lvert\lvert\vec{B}\rvert\rvert$ are the magnitudes of vectors A and B.
+	- $\theta$ is the angle between vectors A and B.
+- This formula arises from the geometric definition of the dot product, relating it to the angle between the two vectors.
+- Therefore,
+$$
+\cos(\theta) = \frac{\vec{A}\cdot\vec{B}}{\lvert\lvert\vec{A}\rvert\rvert\cdot\lvert\lvert\vec{B}\rvert\rvert}
+$$
+- Simplifying it,
+$$
+\cos(\theta) = \frac{\sum^n_{i=1}A_iB_i}{\sqrt{\sum_{i=0}^nA_i^2\sum_{i=0}^nB_i^2}}
+$$
+- As indicated earlier, the more the value of cosine similarity is near to 1, the more two vectors are similar and vise versa.
+
+:::note
+The previous example shows a simple example model in which each embedding has only two dimensions. Real language models have many more dimensions.
+:::
+
+- There are multiple ways you can calculate appropriate embeddings for a given set of tokens, including language modeling algorithms like Word2Vec or the encoder block in a transformer model.
+### Attention
