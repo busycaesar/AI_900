@@ -679,7 +679,7 @@ allowfullscreen></iframe>
 ```txt
 - meow (9)
 - skateboard (10)
-- *and so on...*
+- and so on...
 ```
 
 - With a sufficient large set of training text, a vocabulary of many thousands of tokens could be compiled.
@@ -746,3 +746,25 @@ The previous example shows a simple example model in which each embedding has on
 
 - There are multiple ways you can calculate appropriate embeddings for a given set of tokens, including language modeling algorithms like Word2Vec or the encoder block in a transformer model.
 ### Attention
+- The encoder and decoder block in a transformer model includes multiple layers that from the neural network for the model.
+- We dont need to go into the details of all these layers, but its useful to consider one of the types of layers that is used in both blocks: attention layers.
+- Attention is a technique used to examine a sequence of text tokens and try to quantify the strength of the relationships between them.
+- In particular, self-attention involves considering how other tokens around one particular token influence that token's meaning.
+
+- In an encoder block, each token is carefully examined in context, and an appropriate encoding is determined for its vector embedding.
+- The vector values are based on the relationship between the token and other tokens with which it frequently appears.
+- This contextualized approach means that the same work might have multiple embeddings depending on the context in which its used.
+- For example, `"The bark of a tree"` means something different to `"I heard a dog bark"`.
+- To understand contextual embeddings much better, I would recommend you to watch the following video by [codebasics](https://www.youtube.com/@codebasics). You may skip the tutorial if you want to.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7kLi8u2dJz0"  
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+
+- In a decoder block, attention layers are used to predict the next token in a sequence.
+- For each token generated, the model has an attention layer that takes into account the sequence of tokens up to that point.
+- The models considers which of the tokens are most influential when considering what the next token should be.
+- For example, given the sequence `"I heard a dog"`, the attention layer might assign a greated weight to the tokens `"heard"` and `"dog"` when considering the next work in the sequence.
+
+- Remember the attention layer is working with numeric representations of the tokens, not the actual text.
+- In a decoder, the process starts with a sequence of token embeddings representing the text to be completed.
