@@ -753,7 +753,7 @@ The previous example shows a simple example model in which each embedding has on
 
 - In an encoder block, each token is carefully examined in context, and an appropriate encoding is determined for its vector embedding.
 - The vector values are based on the relationship between the token and other tokens with which it frequently appears.
-- This contextualized approach means that the same work might have multiple embeddings depending on the context in which its used.
+- This contextualized approach means that the same word might have multiple embeddings depending on the context in which its used.
 - For example, `"The bark of a tree"` means something different to `"I heard a dog bark"`.
 - To understand contextual embeddings much better, I would recommend you to watch the following video by [codebasics](https://www.youtube.com/@codebasics). You may skip the tutorial if you want to.
 
@@ -768,3 +768,50 @@ allowfullscreen></iframe>
 
 - Remember the attention layer is working with numeric representations of the tokens, not the actual text.
 - In a decoder, the process starts with a sequence of token embeddings representing the text to be completed.
+- The first thing that happens if that another positional encoding layer adds a value to each embedding to indicate its position in the sequence, as follows:
+
+```txt
+- [**1**,5,6,2]  (I)
+- [**2**,9,3,1]  (heard)
+- [**3**,1,1,2]  (a)
+- [**4**,10,3,2] (dog)
+```
+
+- During training, the goal is to predict the vector for the final token in the sequence based on the preceding tokens.
+- When we are predicting the next token, since not all the previous words are that important, the attention layer assigns a numeric weight to each token in the sequence so far.
+- It uses that value to perform a calculation on the weighted vectors that produces an attention score that can be used to calculate a possible vector for the next token.
+- In practice, a technique called multi-head attention uses different elements of the embeddings to calculate multiple attention scores.
+- A neural network is then used to evaluate all possible tokens to determine the most probable token with which to continue the sequence.
+- The process continues iteratively for each token in the sequence, with the output sequence so far being used regressively as the input for the next iteration – essentially building the output one token at a time.
+
+- The following animation shows a simplified representation of how this works – in reality, the calculations performed by the attention layer are more complex; but the principles can be simplified as shown:
+
+![Attention](../assets/attention.gif)
+
+#### Step 1
+1. A sequence of token embeddings is fed into the attention layer.
+2. Each token is represented as a vector of numeric values.
+#### Step 2
+1. The goal in a decoder is to predict the next token in the sequence.
+2. This token will also be a vector that aligns to an embedding in the model’s vocabulary.
+#### Step 3
+1. The attention layer evaluates the sequence so far and assigns weights to each token to represent their relative influence on the next token.
+#### Step 4
+1. The weights can be used to compute a new vector for the next token with an attention score.
+2. Multi-head attention uses different elements in the embeddings to calculate multiple alternative tokens.
+#### Step 5
+1. A fully connected neural network uses the scores in the calculated vectors to predict the most probable token from the entire vocabulary.
+#### Step 6
+1. The predicted output is appended to the sequence so far, which is used as the input for the next iteration.
+
+- During training, the actual sequence of tokens is known.
+- We just mask the ones that come later in the sequence than the token position currently being considered.
+- Same as other neural network, the predicted value for the token vector is compared to the actual value of the next vector in the sequence and the loss is calculated.
+- The weights are then incrementally adjusted to reduce the loss and improve the model.
+- When used for inferencing (predicting a new sequence of tokens), the trained attention layer applies weights that predict the most probable token in the model’s vocabulary that is semantically aligned to the sequence so far.
+
+- What all of this means, is that a transformer model such as GPT-4 (the model behind ChatGPT and Bing) is designed to take in a text input (called a prompt) and generate a syntactically correct output (called a completion).
+- In effect, the "magic" of the model is that it has the ability to string a coherent sentence together.
+- This ability doesn't imply any "knowledge" or "intelligence" on the part of the model; just a large vocabulary and the ability to generate meaningful sequences of words.
+- What makes an LLM like GPT-4 so powerful however, is the sheer volume of data with which it has been trained (public and licensed data from the Internet) and the complexity of the network. 
+- This enables the model to generate completions that are based on the relationships between words in the vocabulary on which the model was trained; often generating output that is indistinguishable from a human response to the same prompt.
