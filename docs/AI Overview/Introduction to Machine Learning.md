@@ -815,3 +815,5 @@ allowfullscreen></iframe>
 - This ability doesn't imply any "knowledge" or "intelligence" on the part of the model; just a large vocabulary and the ability to generate meaningful sequences of words.
 - What makes an LLM like GPT-4 so powerful however, is the sheer volume of data with which it has been trained (public and licensed data from the Internet) and the complexity of the network. 
 - This enables the model to generate completions that are based on the relationships between words in the vocabulary on which the model was trained; often generating output that is indistinguishable from a human response to the same prompt.
+## Automated Machine Learning in Azure Machine Learning
+- Complete the [lab](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/01-machine-learning.html) to explore the automated machine learning capability in Azure Machine Learning Studio and use it to train and evaluate a machine learning model.
