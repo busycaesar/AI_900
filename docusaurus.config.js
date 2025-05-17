@@ -83,6 +83,12 @@ const config = {
           label: "GitHub",
           position: "right",
         },
+                {
+          href: "https://learn.microsoft.com/en-us/training/courses/ai-900t00",
+          label: "Microsoft Learn Course",
+          position: "right",
+        },
+
       ],
     },
     footer: {

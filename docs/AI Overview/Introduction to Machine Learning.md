@@ -315,12 +315,13 @@ $$
 - Total time spend to travel distance d for with the first speed is $\mathcal{t}_1 = \mathcal{d} / \mathcal{v}_1$.
 - Similarly, total time spend to travel distance d for with the second speed is $\mathcal{t}_2 = \mathcal{d} / \mathcal{v}_2$.
 - Total distance traveled is $D = d + d = 2d$.
-- Total time taken 
+- Total time taken
 $$
 T = \mathcal{t}_1 + \mathcal{t}_1 = \mathcal{d} / \mathcal{v}_1 + \mathcal{d} / \mathcal{v}_2$ = $\mathcal{d}  (1/ \mathcal{v}_1 + 1 / \mathcal{v}_2)
 $$
 - Hence, the average speed becomes, 
-$$D / T = \frac{2d}{\mathcal{d} (1/ \mathcal{v}_1 + 1 / \mathcal{v}_2)} = \frac{2}{1/\mathcal{v}_1 + 1 / \mathcal{v}_2} = \frac{2}{(\mathcal{v}_1 + \mathcal{v}_2) / \mathcal{v}_1 \times \mathcal{v}_2} = \frac{2 \times \mathcal{v}_1 \times \mathcal{v}_2}{\mathcal{v}_1 + \mathcal{v}_1}
+$$
+D / T = \frac{2d}{\mathcal{d} (1/ \mathcal{v}_1 + 1 / \mathcal{v}_2)} = \frac{2}{1/\mathcal{v}_1 + 1 / \mathcal{v}_2} = \frac{2}{(\mathcal{v}_1 + \mathcal{v}_2) / \mathcal{v}_1 \times \mathcal{v}_2} = \frac{2 \times \mathcal{v}_1 \times \mathcal{v}_2}{\mathcal{v}_1 + \mathcal{v}_1}
 $$
 - Hence, the formula of harmonic mean becomes the product of total number of numbers and all the numbers divided by the sum of all the numbers.
 - Coming back to F1-score, it is the harmonic average of Recall and Precision.
