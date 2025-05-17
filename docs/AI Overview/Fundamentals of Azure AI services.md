@@ -106,3 +106,5 @@ sidebar_position: 3
 - When you write code to access the AI service, the keys and endpoint must be included in the authentication header.
 
 - When you use a studio interface with Azure AI services, your credentials are authenticated when you sign in, and a similar process is happening in the background.
+## Azure AI Services
+- Complete the [lab](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/02-content-safety.html) to explore Azure AI services.
