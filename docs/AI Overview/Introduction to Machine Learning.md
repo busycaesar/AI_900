@@ -50,7 +50,7 @@ sidebar_position: 2
 
    $y = f(x)$
 
-4. After this training phase, the trained model can be used for inferencing. You can input a set of feature values, and receive as an output a prediction of the corresponding label. Because the output from the model is a prediction that was calculated by the function, and not an observed value, you will often see the output from the function shown as $ŷ$.
+4. After this training phase, the trained model can be used for inferencing. You can input a set of feature values, and receive as an output a prediction of the corresponding label. Because the output from the model is a prediction that was calculated by the function, and not an observed value, you will often see the output from the function shown as $\hat{y}$.
 
 ## Types of Machine Learning
 
@@ -108,7 +108,7 @@ There are multiple types of machine learning, and you must apply the appropriate
 - The process for training any supervised ML model involves multiple iterations in which you use an appropriate algorithm to train a model usually with some parameterized settings, evaluate the predictive performance and refine the model by repeating the training process with different algorithms and parameters, until you achieve an acceptable level of predictive accuracy.
 
 ### Understanding algorithm and its elements 
-Consider the first algorithm to be $\mathcal{Y} = \beta_0 + \beta_1\mathcal{X} + \varepsilon$. In this algorithm, y is the predictive label and $\beta_0 + \beta_1\mathcal{X} + \varepsilon$ is the algorithm including $\beta_0$ and $\beta_1$ as parameters. 
+- Consider the first algorithm to be $\mathcal{Y} = \beta_0 + \beta_1\mathcal{X} + \varepsilon$. In this algorithm, y is the predictive label and $\beta_0 + \beta_1\mathcal{X} + \varepsilon$ is the algorithm including $\beta_0$ and $\beta_1$ as parameters. 
 
 ![Regression Algorithm Graph](../assets/regressionalgograph.png)
 

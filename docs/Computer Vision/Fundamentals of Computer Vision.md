@@ -348,3 +348,6 @@ calorie diet
 - For example, you could use photographs of fruit to train a model that detects multiple fruits in an image, like this:
 
 ![Diagram of multiple detected fruits in an image.](https://learn.microsoft.com/en-us/training/wwl-data-ai/analyze-images-computer-vision/media/object-detection.png)
+
+## Analyze images in Azure AI Foundry portal
+- Complete the [lab](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/03-image-analysis.html) to Analyze images in Azure AI Foundry portal.
