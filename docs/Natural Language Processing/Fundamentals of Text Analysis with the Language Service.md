@@ -114,4 +114,4 @@ We can plot the location of tokens based on these vectors in three-dimensional s
 	- Sentiment analysis and opinion mining to categorize text as positive or negative.
 	- Machine translation, in which text is automatically translated from one language to another.
 	- Summarization, in which the main points of a large body of text are summarized.
-	- Conversational AI solutions such as bots or digital assistants in which the language model can interpret natural language input and return an appropriate response.
+	- Conversational AI solutions such as bots or digital assistants in which the language model can interpret natural language input and return an appropriate response.exi
