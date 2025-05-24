@@ -148,14 +148,14 @@ To understand all the steps and actions with a practical example, please check [
 - Based on the predicted and actual values, you can calculate some common metrics that are used to evaluate a regression model.
 - For understanding each metrics, consider the following observations for the ice cream sales.
 
-| Temperature ($\mathcal{X}$) | Actual sales ($\mathcal{Y}$) | Predicted sales ($\hat{\mathcal{Y}}$) | Different ($\lvert\hat{\mathcal{Y}} - \mathcal(Y)\lvert$) |
-| --------------------------- | ---------------------------- | ------------------------------------- | --------------------------------------------------------- |
-| 52                          | 0                            | 2                                     | 2                                                         |
-| 67                          | 14                           | 17                                    | 3                                                         |
-| 70                          | 23                           | 20                                    | 3                                                         |
-| 73                          | 22                           | 23                                    | 1                                                         |
-| 78                          | 26                           | 28                                    | 2                                                         |
-| 83                          | 36                           | 33                                    | 3                                                         |
+| Temperature ($\mathcal{X}$) | Actual sales ($\mathcal{Y}$) | Predicted sales ($\hat{\mathcal{Y}}$) | Difference ($\lvert\hat{\mathcal{Y}} - \mathcal{Y}\lvert$) |
+| --------------------------- | ---------------------------- | ------------------------------------- | ---------------------------------------------------------- |
+| 52                          | 0                            | 2                                     | 2                                                          |
+| 67                          | 14                           | 17                                    | 3                                                          |
+| 70                          | 23                           | 20                                    | 3                                                          |
+| 73                          | 22                           | 23                                    | 1                                                          |
+| 78                          | 26                           | 28                                    | 2                                                          |
+| 83                          | 36                           | 33                                    | 3                                                          |
 #### Mean Absolute Error (MAE)
 - To calculate MAE, we need to get the unit different between the actual label and predicted label for each observation.
 - This difference is absolute. Hence, it doesnt matter if the actual label is above the predicted label or below.
@@ -192,7 +192,7 @@ To understand all the steps and actions with a practical example, please check [
 - Now, the actual (or ideal) variation in the data is 11.25 and the total variation by the model is 2.45.
 - If we remove the total variation by the model from the actual variation in the data, we get 11.25 - 2.45 = 8.8.
 - This is the proportion of the variation from the actual variation that we can get from the model.
-- Hence, to calculate how well the model explains the data, we divide the variation the model is able to capture (which is 11.25−2.45=8.811.25 - 2.45 = 8.811.25−2.45=8.8) by the total variation in the data (which is 11.25).
+- Hence, to calculate how well the model explains the data, we divide the variation the model is able to capture (which is 11.25−2.45=8.8) by the total variation in the data (which is 11.25).
 - The value that we get, indicates how accurate the model is.
 - This value is call the coefficient of determination, which ranges between 0 to 1.
 - 1 indicates that the model is efficiently able to get the variation that already exists in the data; while 0 indicates that the model is inefficient and it is only able to guess the mean.
