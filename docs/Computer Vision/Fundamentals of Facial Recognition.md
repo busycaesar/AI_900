@@ -84,3 +84,5 @@ sidebar_position: 2
   - File size - 6 MB or smaller.
   - Face size range - from 36 x 36 pixels up to 4096 x 4096 pixels. Smaller or larger faces will not be detected.
   - Other issues - face detection can be impaired by extreme face angles, extreme lighting, and occlusion (objects blocking the face such as a hand).
+## Detect faces in Vision Studio
+- - Complete the [lab](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/04-face.html) to Detect faces in Vision Studio.

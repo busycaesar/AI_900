@@ -86,3 +86,5 @@ sidebar_position: 3
 - Keep in mind that Vision Studio can return examples of OCR, but to build your own OCR application, you need to work with an SDK or REST API.
 
 ![A screenshot showing bounding boxes and the related json returned.](https://learn.microsoft.com/en-us/training/wwl-data-ai/read-text-computer-vision/media/vision-studio-ocr-example.jpg)
+## Read text in Vision Studio
+- Complete the [lab](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/05-ocr.html) to Read text in Vision Studio.
