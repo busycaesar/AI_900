@@ -34,3 +34,5 @@ sidebar_position: 2
 - After creating a set of question-and-answer pairs, you must save it.
 - This process analyzes your literal questions and answers and applies a built-in natural language processing model to match appropriate answers to questions, even when they are not phrased exactly as specified in your question definitions.
 - Then you can use the built-in test interface in the Language Studio to test your knowledge base by submitting questions and reviewing the answers that are returned.
+## Use question answering with Language Studio
+- Complete the [lab](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/06-text-analysis.html) to Use question answering with Language Studio.
