@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 ## Generative AI
@@ -37,7 +37,7 @@ A[Documents from the internet and public sources of information] --> B[Language 
 - **Labeled Image**: An image with the description of what the image is of.
 - **Unlabeled Image**: An image with no description.
 
-![Image Classification Diagram](../assets/imageclassification.png)
+![Image Classification Diagram](./assets/imageclassification.png)
 
 ### Object Detection
 
@@ -60,12 +60,12 @@ A[Documents from the internet and public sources of information] --> B[Language 
 - Speech recognition is the ability of AI to hear and interpret speech.
 - Usually this capability takes the form of speech-to-text where the audio signal for the speech is transcribed into text.
 
-![Speech to Text](../assets/stt.png)
+![Speech to Text](./assets/stt.png)
 
 - Speech synthesis is the ability of AI to vocalize words as spoken language.
 - Usually this capability takes the form of text-to-speech in which information in text format is converted into an audible signal.
 
-![Text to Speech](../assets/tts.png)
+![Text to Speech](./assets/tts.png)
 
 - AI speech technology is rapidly evolving to handle the challenges like ignoring background noise, detecting interruptions, and generating increasingly expressive and human-like voices.
 

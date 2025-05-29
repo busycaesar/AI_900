@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 ## Introduction
@@ -26,7 +26,7 @@ sidebar_position: 2
 - The process of defining this function is known as training.
 - After the function has been defined, the process of using it to predict new values is called inferencing.
 
-![ML](../assets/ml.png)
+![ML](./assets/ml.png)
 
 #### Steps involved in training and inferencing
 
@@ -56,7 +56,7 @@ sidebar_position: 2
 
 There are multiple types of machine learning, and you must apply the appropriate type depending on what you are trying to predict. A breakdown of common types of machine learning is shown in the following diagram.
 
-![Machine Learning Types](../assets/mltypes.png)
+![Machine Learning Types](./assets/mltypes.png)
 
 ### Supervised Machine Learning
 
@@ -122,7 +122,7 @@ There are multiple types of machine learning, and you must apply the appropriate
 - You can use this labeled observations to train a classification model.
 - This model can be further used to predict the class in which the new customer belongs.
 
-![Clustering Model X Classification Model](../assets/clusterclassification.png)
+![Clustering Model X Classification Model](./assets/clusterclassification.png)
 
 ## Regression
 
@@ -134,7 +134,7 @@ There are multiple types of machine learning, and you must apply the appropriate
 
 - Consider the first algorithm to be $\mathcal{Y} = \beta_0 + \beta_1\mathcal{X} + \varepsilon$. In this algorithm, y is the predictive label and $\beta_0 + \beta_1\mathcal{X} + \varepsilon$ is the algorithm including $\beta_0$ and $\beta_1$ as parameters.
 
-![Regression Algorithm Graph](../assets/regressionalgograph.png)
+![Regression Algorithm Graph](./assets/regressionalgograph.png)
 
 - The value of $\mathcal{Y}$ (prediction) will increase/decrease as the value of $x$ (features) increases.
 - Hence, $\mathcal{Y}$ is either directly or inversely proportional to $x$.
@@ -174,7 +174,7 @@ There are multiple types of machine learning, and you must apply the appropriate
 - After each train, validate and evaluate iteration.
 - You can repeat the process with different algorithms and parameters, until an acceptable evaluation metric is achieved.
 
-![Regression Algorithm Graph](../assets/supervisedmltraining.png)
+![Regression Algorithm Graph](./assets/supervisedmltraining.png)
 
 To understand all the steps and actions with a practical example, please check [this page on Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/fundamentals-machine-learning/4-regression#example---regression). It walks through each step along with a sample data to demonstrate the concept.
 
@@ -277,7 +277,7 @@ To understand all the steps and actions with a practical example, please check [
 - For example, if the probability of a patient having diabetes is 0.7, then there is a corresponding probability of 0.3 that the patient is not diabetic.
 - There are many algorithm that can be used for binary classification, such as logistic regression, which derives a sigmoid (S-shaped) function with values between 0 and 1, like this:
 
-![Regression Algorithm Graph](../assets/sigmoid-plot.png)
+![Regression Algorithm Graph](./assets/sigmoid-plot.png)
 
 :::note
 Despite its name, in machine learning logistic regression is used for classification, not regression. The important point is the logistic nature of the function it produces, which describes an S-shaped curve between a lower and upper value (0.0 and 1.0 when used for binary classification).
@@ -312,7 +312,7 @@ Despite its name, in machine learning logistic regression is used for classifica
 
 - Applying the logistic function we derived previously to the $\mathcal{X}$ values results in the following plot.
 
-![Classification Predictions](../assets/classification-predictions.png)
+![Classification Predictions](./assets/classification-predictions.png)
 
 - Based on whether the probability calculated by the function is above or below the threshold, the model generates a predicted label of 1 or 0 for each observation.
 - Following is the comparison of predicted class labels ($\hat{\mathcal{Y}}$) to the actual class labels ($\mathcal{Y}$).
@@ -330,7 +330,7 @@ Despite its name, in machine learning logistic regression is used for classifica
 
 - The first step in evaluation metrics for a binary classification models is usually to create a matrix of the number of correct and incorrect predictions for each possible class label.
 
-![Binary Classification Evaluation Metrics](../assets/binary-confusion-matrix.png)
+![Binary Classification Evaluation Metrics](./assets/binary-confusion-matrix.png)
 
 - This visualization is known as confusion matrix and it shows prediction totals where:
   - ŷ=0 and y=0: True negatives (TN)
@@ -400,7 +400,7 @@ Despite its name, in machine learning logistic regression is used for classifica
 - Ofcourse if we were to change the threshold above which the model predicts true, it would affect the number of positive and negative predictions; and therefore, changing TPR and FPR metrics.
 - These metrics are often used to evaluate a model by plotting a received operator characteristics (ROC) curve that compares TPR and FPR for every possible threshold value between 0 to 1.
 
-![ROC Curve](../assets/roc-chart.png)
+![ROC Curve](./assets/roc-chart.png)
 
 - The ROC curve for a perfect model would go up to TPR axis on the left and then across the FPR axis at the top.
 - The available plot area for the curve is 1 X 1.
@@ -477,7 +477,7 @@ Despite its name, in machine learning logistic regression is used for classifica
 
 - The confusion matrix for a multclass classifier is similar to that of a binary classifier, except that it shows the number of predictions for each combination of predicted ($\hat{\mathcal{Y}}$) and the actual class labels ($\mathcal{Y}$).
 
-![Multiclass Confusion Matrix](../assets/multiclass-confusion-matrix.png)
+![Multiclass Confusion Matrix](./assets/multiclass-confusion-matrix.png)
 
 From this confusion matrix we can determine the metrics for each individual class as follows:
 
@@ -504,7 +504,7 @@ From this confusion matrix we can determine the metrics for each individual clas
 
 - Following is the sample data of flowers that records the number of leaves and petals on each flower.
 
-![Flowers](../assets/flowers.png)
+![Flowers](./assets/flowers.png)
 
 - There are no known labels in the dataset.
 - The goal is not to identify the species of each flower; but to group similar flowers together based on the number of leaves and petals.
@@ -557,7 +557,7 @@ From this confusion matrix we can determine the metrics for each individual clas
 
 1. The centroid movement and the cluster reallocation steps are repeated until the clusters become stable or a predetermined maximum number of iterations is reached.
 
-![Clustering Animation](../assets/clustering.gif)
+![Clustering Animation](./assets/clustering.gif)
 
 ### Evaluating a clustering model
 
@@ -634,7 +634,7 @@ f3(13) = 1 / (1 + e^-13) ≈ 0.999998  => Very likely to turn on the cooler
 
 - Following is the example in which a neural network is used to define a classification model for penguin species.
 
-![Deep Classification](../assets/deep-classification.png)
+![Deep Classification](./assets/deep-classification.png)
 
 - The feature data (x) consists of some measurements of a penguin. Specifically, the measurements are:
 
@@ -683,7 +683,7 @@ f3(13) = 1 / (1 + e^-13) ≈ 0.999998  => Very likely to turn on the cooler
 1. The elements of the vector produced by the output layer represent the probabilities for classes 0, 1 and 2.
 2. Since the second value is the highest, so the model predicts that the species of the penguin is 1.
 
-![Neural Network](../assets/neural-network.png)
+![Neural Network](./assets/neural-network.png)
 
 ### How does a Neural Network Learn?
 
@@ -749,7 +749,7 @@ While it's easier to think of each case in the training data being passed throug
   - An encoder block that creates semantic relationships of the training vocabulary.
   - A decoder block that generates new language sequences.
 
-![Transformer Model](../assets/transformer-model.png)
+![Transformer Model](./assets/transformer-model.png)
 
 #### Step 1:
 
@@ -842,7 +842,7 @@ allowfullscreen></iframe>
   - Like: \[4, 4\]
 - Since there are only 2 values in the embeddings, we can plot it into a 2 dimentional graph as below.
 
-![Cosine Similarity Graph](../assets/cosine-similarity.png)
+![Cosine Similarity Graph](./assets/cosine-similarity.png)
 
 - Hence, essentially we converted embeddings of each token into lines.
 - Now, consider the angle between these 2 lines is $\theta$.
@@ -922,7 +922,7 @@ allowfullscreen></iframe>
 
 - The following animation shows a simplified representation of how this works – in reality, the calculations performed by the attention layer are more complex; but the principles can be simplified as shown:
 
-![Attention](../assets/attention.gif)
+![Attention](./assets/attention.gif)
 
 #### Step 1
 
