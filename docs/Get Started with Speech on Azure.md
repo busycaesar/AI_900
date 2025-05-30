@@ -94,3 +94,19 @@ sidebar_position: 9
 - Both the speech to text and text to speech APIs support a variety of languages.
 
 ## Use Azure AI Speech
+- Azure AI Speech is available for use through several tools and programming languages including:
+	- Studio interfaces
+	- [Command Line Interface (CLI)](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/spx-overview)
+	- REST APIs and [Software Development Kits (SDKs)](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-sdk)
+### Using studio interfaces
+- You can create Azure AI Speech projects using user interfaces with Speech Studio or Azure AI Studio.
+### Azure resources for Azure AI Speech
+- To use Azure AI Speech, either of the following resource can be created.
+#### Speech Resource
+- If you only plan to use Azure AI Speech.
+- If you want to manage access and billing separately from other services.
+#### Azure AI Services
+- If you want to use Azure AI Speech with other Azure AI services.
+- If you want to manage access and billing services together.
+## Explore Speech in Azure AI Foundry portal
+- Complete the [lab](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/09-speech.html) to explore Speech in Azure AI Foundry portal.

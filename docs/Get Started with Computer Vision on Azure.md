@@ -3,9 +3,25 @@ sidebar_position: 11
 ---
 
 ## Introduction
-
+- Computer Vision is a field of AI that helps computers to understand visual resources like images and videos.
+- Following are some of the applications of computer vision.
+	- Defect Detection in Manufacturing
+	- Healthcare: Computer Vision can help analyze X-rays, MRIs and CT scans to highlight anomalies like tumors or fractures.
+	- Shelf Monitoring in Retail
+	- Autonomous Vehicles in Transportation
 ## Understand Azure AI services for computer vision
+- Azure AI provides a wide range of services for various AI tasks including Computer Vision.
+- Azure AI Vision provides prebuilt and customizable computer vision models.
+- These models are based on deep learning models and provides various capabilities.
+- Azure AI Vision offers many functionalities for computer vision scenarios while retaining the ability to create your own custom model.
+- Within Azure AI Vision there are services that handle specific set of tasks including:
+	- **Azure AI Vision Image Analysis Service**: It detects objects in the images, tags visual features, generates captions and supports optical character recognization.
 
+![Screenshot of image captioning example from Azure AI Foundry.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-computer-vision-azure/media/image-captioning-example.png)
+
+- **Azure AI Face Service**: Detects, recognizes and analyzes human faces in images.
+
+![Screenshot of face detection example from Azure AI Foundry.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-computer-vision-azure/media/face-detection-example.png)
 ## Understand Azure AI Vision Image Analysis capabilities
 
 ### Describing an image with captions
@@ -164,6 +180,20 @@ calorie diet
 
 ### Get started in Azure AI Foundry portal
 
+![Screenshot of the Azure AI Foundry portal.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-computer-vision-azure/media/azure-ai-foundry-portal.png)
+
+- Azure AI Foundry provides a unified platforms for enterprise AI operations, model builders and application development.
+- Azure AI Foundry portal provides a user interface which is based around hubs and projects.
+- To use any Azure AI service, you can create a project in Azure AI Foundry.
+- It will also create Azure AI services resource.
+
+- Projects in Azure AI Foundry helps organize work and resources efficiently.
+- Projects acts as containers for datasets, models and other resources.
+- It makes it easy to manage and collaborate on AI solutions.
+
+- Within Azure AI Foundry portal, you have the ability to try out service features by testing with sample images or uploading your own.
+
+![Screenshot of Azure AI Foundry's Vision page.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-computer-vision-azure/media/azure-ai-foundry-portal-vision-example.png)
 ## Analyze images in Azure AI Foundry portal
 
 - Complete the [lab](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/03-image-analysis.html) to Analyze images in Azure AI Foundry portal.
