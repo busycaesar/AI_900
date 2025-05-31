@@ -36,7 +36,29 @@ We have used a simple example in which tokens are identified for each distinct w
   :::
 
 ## Understand statistical techniques for NLP
-
+- The two important statistical techniques that form the foundation of NLP is Naïve Bayes and Term Frequency - Inverse Document Frequency (TF - IDF).
+### Naïve Bayes
+- Naïve Bayes is a technique that was first user to classify the email into spam and not spam.
+- In other words, this technique identifies he group of words that only occur in one type of document and not other.
+- This group of words are often referred to as bag-of-words features.
+- For example, the words `miracle cure`, `lose weight fast`, and `anti-aging` may appear more frequently in spam emails.
+- Although Naïve Bayes proved to be more effective than simple rule-based models for text classification, it only checks for the words in text and not where those words appear or how they are related to each other.
+- Like it treats `"not good"` and `"good"` as having the same word `"good"` and treat them similarly.
+### Understanding TF-IDF
+- TF - IDF is a method that helps figure out which words are important in a document.
+	1. **Term Frequency (TF)**: The number of times a word appear in one document.
+	2. **Inverse Document Frequency (TF)**: How common or rare that word is across all documents.
+- If a word appears a lot in one document and less in others, it probably important for that document.
+#### Example:
+- Imagine you have 3 documents:
+	- **Doc 1:** "I love pizza and pasta."
+	- **Doc 2:** "Pizza is my favorite food."
+	- **Doc 3:** "Books and learning are fun."
+- Now, the word **"pizza"**:
+	- Appears in Doc 1 and Doc 2, but **not in Doc 3**.
+	- If you are trying to find documents about food, **pizza** is a helpful keyword.
+	- But a word like **"and"** appears in almost every document, so its not special.
+	- TF-IDF gives it a low score.
 ## Understand semantic language models
 
 - As the NLP has advanced, the ability to train models that also includes the semantic relationship between tokens has resulted to the emergence of powerful language models.

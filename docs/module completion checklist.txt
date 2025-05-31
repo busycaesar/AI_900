@@ -1,10 +1,8 @@
 //Introduction to AI concepts
 //Introduction to machine learning concepts
 //Introduction to computer vision concepts
-Get started with speech on Azure
-Get started with computer vision on Azure
-	## Understand Azure AI services for computer vision
-	### Get started in Azure AI Foundry portal
+//Get started with speech on Azure
+//Get started with computer vision on Azure
 Introduction to natural language processing concepts
 	## Understand statistical techniques for NLP
 Get started with natural language processing on Azure

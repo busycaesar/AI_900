@@ -3,13 +3,75 @@ sidebar_position: 8
 ---
 
 ## Introduction
-
+- NLP is the field of AI focused on enabling machines to understand, interpret and respond to human languages.
+- Some of the NLP applications include:
+	- Customer Feedback Analysis: Organizations need to analyze large volumes of customer reviews, support tickets, or survey responses.
+	- Healthcare Text Analysis: In the healthcare sector, clinical information from unstructured medical documents helps identify symptoms, medications, and diagnoses, supporting faster and more accurate decision-making.
+	- Conversational AI with Virtual Agents: Virtual assistants that can interpret user intent, translate conversations, extract relevant entities, and respond appropriately.
 ## Understand natural language processing on Azure
+- Core NLP tasks include: language detection, sentiment analysis, named entity recognition, text classification, translation, and summarization.
+- These tasks are supported by Azure AI services including:
 
+| **Service**                                                                                                                                                                                     | **Description**                                                                                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Screenshot of Azure AI Language icon.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-language-azure/media/azure-ai-language.png) <br>**Azure AI Language service**       | - A cloud-based service that includes features for understanding and analyzing text.<br>- It includes various features that support sentiment analysis, key phrase identification, text summarization, and conversational language understanding. |
+| ![Screenshot of Azure AI Translator icon.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-language-azure/media/azure-ai-translator.png) <br>**Azure AI Translator service** | - A cloud-based service that uses Neural Machine Translation (NMT) for translation, which analyzes the semantic context of the text and renders a more accurate and complete translation as a result.                                             |
 ## Understand Azure AI Language's text analysis capabilities
+- Azure AI language is a part of Azure AI services offerings.
+- It can perform NLP of unstructured text and its features include:
+	- **Named entity recognition** identifies people, places, events, and more.
+	- **Entity linking** identifies known entities together with a link to Wikipedia.
+	- **Personal identifying information (PII)** detection identifies personally sensitive information, including personal health information (PHI).
+	- **Language detection** identifies the language of the text and returns a language code such as "en" for English.
+	- **Sentiment analysis and opinion mining** identifies whether text is positive or negative.
+	- **Summarization** summarizes text by identifying the most important information.
+	- **Key phrase extraction** lists the main concepts from unstructured text.
+### Entity recognition and linking
+- Azure AI Language can get unstructured text and return a list of entities from the text that is can recognize.
 
+| Type                  | SubType    | Example                         |
+| --------------------- | ---------- | ------------------------------- |
+| Person                |            | "Bill Gates", "John"            |
+| Location              |            | "Paris", "New York"             |
+| Organization          |            | "Microsoft"                     |
+| Quantity              | Number     | "6" or "six"                    |
+| Quantity              | Percentage | "25%" or "fifty percent"        |
+| DateTime              |            | "6:30PM February 4, 2012"       |
+| DateTime              | Date       | "May 2nd, 2017" or "05/02/2017" |
+| DateTime              | Time       | "8am" or "8:00"                 |
+| URL                   |            | "`https://www.bing.com`"        |
+| Email                 |            | "`support@microsoft.com`"       |
+| US-based Phone Number |            | "(312) 555-0176"                |
+| IP Address            |            | "10.0.1.125"                    |
+- Azure AI Language also supports entity linking, that is, it links entities to a specific reference, for example a relevant Wikipedia article.
+### Language detection
+- Azure AI Language has language detection capability.
+- It returns the language name, ISO language code and a confidence score.
+- If the text is in mixed languages, it returns the predominant language in the text.
+- It uses an algorithm to determine the predominant language such as the length of phrases or total amount of text for the language compared to other language.
+- The confidence score might be less than 1 as a result of the mixed language text.
+- In case of ambiguous text or the text that has mixed language content, like `":-)"`, it returns a value of unknown for the language name and a confidence score of `NaN`.
+### Sentiment analysis and opinion mining
+- Azure AI Language can evaluate text and return sentiment scores and labels.
+- It can be used to determine positive or negative sentiment.
+- It uses a prebuild ML classification model to evaluate the text.
+- It returns the sentiment score in three categories: Positive, Negative or Neutral.
+- In each of these categories a score of 0 to 1 is provided, which indicates how likely the text is a particular sentiment.
+### Key phrase extraction
+- It identifies the main points from the text.
+- For example, from the following text,
+	- "We had dinner here for a birthday celebration and had a fantastic experience. We were greeted by a friendly hostess and taken to our table right away. The ambiance was relaxed, the food was amazing, and service was terrific. If you like great food and attentive service, you should try this place."
+- It can identify,
+	- birthday celebration
+	- fantastic experience
+	- friendly hostess
+	- great food
+	- attentive service
+	- dinner
+	- table
+	- ambiance
+	- place
 ## Azure AI Language's conversational AI capabilities
-
 ### Understand question answering
 
 - Question answering helps build bots that can talk naturally with users and answer their questions.
