@@ -12,10 +12,10 @@ sidebar_position: 8
 - Core NLP tasks include: language detection, sentiment analysis, named entity recognition, text classification, translation, and summarization.
 - These tasks are supported by Azure AI services including:
 
-| **Service**                                                                                                                                                                                     | **Description**                                                                                                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![Screenshot of Azure AI Language icon.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-language-azure/media/azure-ai-language.png)**Azure AI Language service**       | A cloud-based service that includes features for understanding and analyzing text. It includes various features that support sentiment analysis, key phrase identification, text summarization, and conversational language understanding. |
-| ![Screenshot of Azure AI Translator icon.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-language-azure/media/azure-ai-translator.png) **Azure AI Translator service** | A cloud-based service that uses Neural Machine Translation (NMT) for translation, which analyzes the semantic context of the text and renders a more accurate and complete translation as a result.                                             |
+| **Service**                                                                                                                                                                                 | **Description**                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ![Screenshot of Azure AI Language icon.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-language-azure/media/azure-ai-language.png)**Azure AI Language service**        | A cloud-based service that includes features for understanding and analyzing text. It includes various features that support sentiment analysis, key phrase identification, text summarization, and conversational language understanding. |
+| ![Screenshot of Azure AI Translator icon.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-language-azure/media/azure-ai-translator.png) **Azure AI Translator service** | A cloud-based service that uses Neural Machine Translation (NMT) for translation, which analyzes the semantic context of the text and renders a more accurate and complete translation as a result.                                        |
 ## Understand Azure AI Language's text analysis capabilities
 - Azure AI language is a part of Azure AI services offerings.
 - It can perform NLP of unstructured text and its features include:
@@ -134,11 +134,45 @@ sidebar_position: 8
 - `None` intent is of a special interest.
 - Always consider using the None intent to help handle utterances that do not map any of the utterances.
 - The None intent is considered a fallback, and is typically used to provide a generic response to users when their requests don't match any other intent.
-
 ## Azure AI Translator capabilities
-
+- Early attempts at machine translation applied literal translation.
+- A literal translation means translating each word to the corresponding word in the target language.
+- But it has issues like not having an equivalent word in the target language, change in meaning of the phrase or not get the correct context.
+- Hence, AI should also understand the semantic context in which a word is used.
+- Moreover, the grammar rules, formal vs informal and colloquialisms needs to be considered.
+- Azure AI Translator supports translation between more than 130 languages.
+- It can be used to translation text from one language to multiple languages simultaneously.
+### Using Azure AI Translator
+- Azure AI Translator includes the following capabilities:
+	- Text Translation
+	- Document Translation
+	- Custom translation - used to enable enterprises, app developers, and language service providers to build customized neural machine translation (NMT) systems.
 ## Get started in Azure AI Foundry
+- To use Azure AI Language or Azure AI Translator either a single-service resource or a multi-service resource can be created.
+### Language Resource
+- if you only plan to use Azure AI Language services.
+- If you want to manage access and billing for the resource separately from other services.
+### Translator resource
+- If you want to manage access and billing for each service individually.
+### Azure AI services resource
+- If you plan to use Azure AI Language in combination with other Azure AI services.
+- If you want to manage access and billing for these services together.
+## Get started in Azure AI Foundry portal
 
+![Screenshot of Azure AI Language page in Azure AI Foundry portal.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-language-azure/media/ai-foundry-language-1.png)
+
+- Azure AI Foundry provides a unified platform for enterprise AI operations, model builders, and application development.
+- Azure AI Foundry portal provides a user interface based around hubs and projects.
+- To use any of the Azure AI services, including Azure AI Language or Azure AI Translator, you create a project in Azure AI Foundry, which will also create an Azure AI services resource for you.
+
+- Projects in Azure AI Foundry help you organize your work and resources effectively. Projects act as containers for datasets, models, and other resources, making it easier to manage and collaborate on AI solutions.
+
+- Within Azure AI Foundry portal, you have the ability to try out service features in a playground setting.
+- Azure AI Foundry portal provides a language playground and a translator playground.
+
+![Screenshot of Azure AI Language playground in Azure AI Foundry portal with an example of sentiment analaysis.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-language-azure/media/ai-foundry-language-sentiment.png)
+
+![Screenshot of Azure AI Translator playground in Azure AI Foundry portal with an example of text translation.](https://learn.microsoft.com/en-us/training/wwl-data-ai/get-started-language-azure/media/ai-foundry-translator-playground.png)
 ## Analyze text in Azure AI Foundry portal
 
 - Complete the [lab](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/06-text-analysis.html) to Analyze text in Azure AI Foundry portal.
