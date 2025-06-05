@@ -3,15 +3,9 @@
 //Introduction to computer vision concepts
 //Get started with speech on Azure
 //Get started with computer vision on Azure
-Introduction to natural language processing concepts
-	## Understand statistical techniques for NLP
-Get started with natural language processing on Azure
-	## Introduction
-	## Understand natural language processing on Azure
-	## Understand Azure AI Language's text analysis capabilities
-	## Azure AI Translator capabilities
-	## Get started in Azure AI Foundry
-Design a machine learning model training solution
+//Introduction to natural language processing concepts
+//Get started with natural language processing on Azure
+//Get started with Machine Learning in Azure
 Introduction to generative AI concepts
 Get started with generative AI on Azure
 Introduction to AI-powered information extraction concepts

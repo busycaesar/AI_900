@@ -122,3 +122,87 @@ The diagram is a simplified representation of the machine learning process. Typi
 	- Integration with common ML frameworks such as MLflow, which make it easier to manage model training, evaluation, and deployment at scale.
 	- Built-in support for visualizing and evaluating metrics for responsible AI, including model explainability, fairness assessment, and others.
 ## Use Azure Machine Learning studio
+- Azure ML studio is a web based portal that can be used for managing ML resources and jobs and consist of several other capabilities.
+- In Azure ML Studio, you can,
+	- Import and explore data.
+	- Create and use compute resources.
+	- Run code in notebooks.
+	- Use visual tools to create jobs and pipelines.
+	- Use automated mahine learning to train models.
+	- View details of trained models, including evaluation metrics, responsible AI information, and training parameters.
+	- Deploy trained models for on-request and batch inferencing.
+	- Import and manage models from a comprehensive model catalog.
+### Provisioning Azure Machine Learning resources
+- The only resource that needs to be created to use Azure ML is Azure ML workspace.
+- It can be created from Azure portal.
+- All the other supporting resources like storage accounts, container registries, virtual machines, etc are created automatically as needed.
+#### Decide between computer options
+- To use Azure ML to train a model, you need to select computational resources required to perform the training process.
+
+| Compute options                                                   | Considerations                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Central Processing Unit (CPU) or a Graphics Processing Unit (GPU) | For smaller tabular datasets, a CPU is sufficient and cost-effective. For unstructured data like images or text, GPUs are more powerful and efficient. GPUs can also be used for larger tabular datasets, if CPU compute is proving to be insufficient.                                                  |
+| General purpose or memory optimized                               | Use general purpose to have a balanced CPU-to-memory ratio, which is ideal for testing and development with smaller datasets. Use memory optimized to have a high memory-to-CPU ratio. Great for in-memory analytics, which is ideal when you have larger datasets or when you are working in notebooks. |
+ - Which compute fits best based on the needs is often a case of trail and error.
+ - It a good practice to monitor the time taken and compute utilized to train a model.
+ - By monitoring compute utilization, you know whether to scale the compute up or down.
+ - For example, if the training process is taking very long even with the latest compute size, its better to use GPU instead of CPU.
+ - Alternatively, you can choose to distribute model training by using Spark compute which require you to rewrite your training scripts.
+### Azure Automated Machine Learning
+- Azure ML's automated ML capabilities automatically assign compute.
+- It automates the time-consuming, iterative tasks of ML model development.
+
+- In Azure ML studio, Automated ML can be used to design and run the training experiments without needing to write code.
+- It provides step by step wizard to help run ML training jobs.
+- It can be used for many tasks like regression, classification, CV and NLP.
+- With AutoML, you have access to your own datasets and ML models can be deployed as services.
+## Integrate a model
+- You should plan how to integrate the model as it affects the way you train the model and training data you use.
+- To integrate the model, it needs to be deployed to an endpoint for either real-time or batch predictions.
+### Deploy a model to an endpoint
+#### Get real-time predictions
+- As the name suggest, it gives the predictions in real time, as it receives the data.
+- For example, recommendation system.
+- When the user clicks on a product on the website, the model recommends other related product to the user immediately.
+- The model should be able to return the recommended product in the time it takes for the website to load the webpage.
+
+![Diagram showing a website of a web shop. A shirt is shown at the top and the recommendations, based on the shirt, are shown at the bottom.](https://learn.microsoft.com/en-us/training/wwl-data-ai/design-machine-learning-model-training-solution/media/real-time.png)
+
+#### Get batch predictions
+- If the model needs to predict the data and store it in a file or database, batch predictions can be used.
+- For example, sales prediction.
+- The model can be trained to predict the each future week's sales.
+- The prediction can be used to ensure that there is enough supply of the material to meet the demand.
+- It requires calling the model only once a week to get the next week's predictions.
+- A collection of data points is called batch.
+### Decide between real-time or batch deployment
+- Answering the following questions will help decide which deployment is required.
+	- How often should predictions be generated?
+	- How soon are the results needed?
+	- Should predictions be generated individually or in batches?
+	- How much compute power is needed to execute the model?
+#### Identify the necessary frequency of scoring
+- Before generating the predictions, the first step is to collect the new data.
+- The data can be collection at different time intervals.
+- Generally there are two use cases:
+	- The model is required to score new data as soon as it comes in.
+	- There is a schedule or the model is triggered to score the new data that is collected overtime.
+
+![Diagram showing a visual representation of real-time and batch predictions.](https://learn.microsoft.com/en-us/training/wwl-data-ai/design-machine-learning-model-training-solution/media/frequency.png)
+
+- Real-time or batch predictions doesnt necessarily depend on how often the data is collected.
+#### Decide on the number of predictions
+- Another important factor is whether the prediction are required to be generated individually or in batches.
+- In simple words, whether the model should predict data for each customer individually or predict data for all the customer at once.
+#### Consider the cost of compute
+- In addition to using compute while training a model, it is also required to deploy a model.
+
+- If real time predictions are required, the compute is expected to available and return the results almost immediately.
+- Container technologies like Azure Container Instance (ACI) and Azure Kubernetes Service (AKS) are ideal for such scenarios as they provide a lightweight infrastructure for your deployed model.
+- In such a scenario, once the model is deployed, the compute is always on.
+- Hence, you are continuously paying because you cannot stop since the model must to available all the time for predictions.
+
+- In case of batch predictions, you need compute that can handle large workloads.
+- Ideally using a compute cluster that can score the data in parallel batches by using multiple nodes.
+- In such a case, the compute is provisioned by the workspace when the batch is triggered and scaled down to 0 nodes when there is no new data to process.
+- This saves a significant cost.
