@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.0">
 <title data-rh="true">Introduction to Generative AI Concepts | AI 900 Notes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://ai900.shahtech.info/Introduction to Generative AI Concepts"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Introduction to Generative AI Concepts | AI 900 Notes"><meta data-rh="true" name="description" content="What is generative AI?"><meta data-rh="true" property="og:description" content="What is generative AI?"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://ai900.shahtech.info/Introduction to Generative AI Concepts"><link data-rh="true" rel="alternate" href="https://ai900.shahtech.info/Introduction to Generative AI Concepts" hreflang="en"><link data-rh="true" rel="alternate" href="https://ai900.shahtech.info/Introduction to Generative AI Concepts" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Introduction to Generative AI Concepts","item":"https://ai900.shahtech.info/Introduction to Generative AI Concepts"}]}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.8734e3e8.css">
-<script src="/assets/js/runtime~main.af01529e.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d5d4785b.js" defer="defer"></script>
 <script src="/assets/js/main.d0462e01.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -164,6 +164,191 @@
 <li>In the decoder layer, an incomplete output sequence is encoded in a similar way, that is by first passing it through the positional encoding and then multi-head attention.</li>
 <li>Further, the multi-head attention is used a second time to combine the output of the encoder and the output from the Decoder&#x27;s multi-head attention.</li>
 <li>As a result, the output is generated.</li>
-</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/Get started with Machine Learning in Azure"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Get started with Machine Learning in Azure</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Get Started with Generative AI on Azure"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Get Started with Generative AI on Azure</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-is-generative-ai" class="table-of-contents__link toc-highlight">What is generative AI?</a></li><li><a href="#how-do-language-models-work" class="table-of-contents__link toc-highlight">How do language models work?</a><ul><li><a href="#tokenization" class="table-of-contents__link toc-highlight">Tokenization</a></li><li><a href="#word-embeddings" class="table-of-contents__link toc-highlight">Word Embeddings</a></li><li><a href="#architectural-developments" class="table-of-contents__link toc-highlight">Architectural developments</a></li></ul></li><li><a href="#understand-how-transformers-advance-language-models" class="table-of-contents__link toc-highlight">Understand how transformers advance language models</a><ul><li><a href="#understand-transformer-architecture" class="table-of-contents__link toc-highlight">Understand Transformer architecture</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://x.com/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://linkedin.com/in/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://dev.to/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blogs<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://youtube.com/@busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">YouTube<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://instagram.com/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Support</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://buymeacoffee.com/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">Buy Me a Coffee<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://topmate.io/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">Topmate<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 shahtech.info. All Rights Reserved.</div></div></div></footer></div>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="understand-positional-encoding">Understand positional encoding<a href="#understand-positional-encoding" class="hash-link" aria-label="Direct link to Understand positional encoding" title="Direct link to Understand positional encoding">​</a></h2>
+<ul>
+<li>Position of a word and order of a words are important to understand the meaning of a text.</li>
+<li>To include this information, transformers use positional encoding.</li>
+<li>Before transformers, language models used word embeddings to encode text into vectors.</li>
+<li>As mentioned that transformer architecture uses positional encoding to encode text into vectors.</li>
+<li>Positional Encoding is the sum of &#x27;word embedding vectors&#x27; and &#x27;positional vectors&#x27;.</li>
+<li>This makes sure that the encoded text includes information about meaning and position of word in a sentence.</li>
+<li>To encode the position of a word in a sentence, you could use a single number to represent the index value. For example:</li>
+</ul>
+<table><thead><tr><th>Token</th><th>Index value</th></tr></thead><tbody><tr><td>The</td><td>0</td></tr><tr><td>work</td><td>1</td></tr><tr><td>of</td><td>2</td></tr><tr><td>William</td><td>3</td></tr><tr><td>Shakespeare</td><td>4</td></tr><tr><td>inspired</td><td>5</td></tr><tr><td>many</td><td>6</td></tr><tr><td>movies</td><td>7</td></tr><tr><td>...</td><td>...</td></tr></tbody></table>
+<ul>
+<li>The longer a text or sequence, the larger the index values may become.</li>
+<li>Though using unique values for each position in a text is a simple approach, the values would hold no meaning</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="understand-attention">Understand attention<a href="#understand-attention" class="hash-link" aria-label="Direct link to Understand attention" title="Direct link to Understand attention">​</a></h2>
+<ul>
+<li>
+<p>The most important technique used by Transformers to process text is the use of attention instead of reoccurance.</p>
+</li>
+<li>
+<p>RNNs are compute-intensive since they process words sequentially; however, transformers process each word independently in parallel using attention.</p>
+</li>
+<li>
+<p>Attention is a mechanism used to map new information to learned information to understand what the new information entails.</p>
+</li>
+<li>
+<p>Transformers use an attention function, where a new word is encoded (using positional encoding) and represented as a query.</p>
+</li>
+<li>
+<p>The output of an encoded word is a key with an associated value.</p>
+</li>
+<li>
+<p>To illustrate the three variables that are used by the attention function: the query, keys, and values, let&#x27;s explore a simplified example.</p>
+</li>
+<li>
+<p>Imagine encoding the sentence <code>Vincent van Gogh is a painter, known for his stunning and emotionally expressive artworks.</code> When encoding the query <code>Vincent van Gogh</code>, the output may be <code>Vincent van Gogh</code> as the key with <code>painter</code> as the associated value.</p>
+</li>
+<li>
+<p>The architecture stores keys and values in a table, which it can then use for future decoding:</p>
+</li>
+</ul>
+<table><thead><tr><th>Keys</th><th>Values</th></tr></thead><tbody><tr><td>Vincent Van Gogh</td><td>Painter</td></tr><tr><td>William Shakespeare</td><td>Playwright</td></tr><tr><td>Charles Dickens</td><td>Writer</td></tr></tbody></table>
+<ul>
+<li>
+<p>Whenever a new sentence is presented like <code>Shakespeare&#x27;s work has influenced many movies, mostly thanks to his work as a ...</code>.</p>
+</li>
+<li>
+<p>The model can complete the sentence by taking <code>Shakespeare</code> as the query and finding it in the table of keys and values.</p>
+</li>
+<li>
+<p><code>Shakespeare</code> the query is closest to <code>William Shakespeare</code> the key, and thus the associated value <code>playwright</code> is presented as the output.</p>
+</li>
+<li>
+<p>To calculate the attention function, the query, keys, and values are all encoded to vectors.</p>
+</li>
+<li>
+<p>The attention function then computes the scaled dot-product between the query vector and the keys vectors.</p>
+</li>
+<li>
+<p>The dot-product calculates the angle between vectors representing tokens, with the product being larger when the vectors are more aligned.</p>
+</li>
+<li>
+<p>The softmax function is used within the attention function.</p>
+</li>
+<li>
+<p>Its output includes which keys are closest to the query.</p>
+</li>
+<li>
+<p>The key with the highest probability is then selected, and the associated value is the output of the attention function.</p>
+</li>
+<li>
+<p>The Transformer architecture uses multi-head attention, which means tokens are processed by the attention function several times in parallel.</p>
+</li>
+<li>
+<p>By doing so, a word or sentence can be processed multiple times, in various ways, to extract different kinds of information from the sentence.</p>
+</li>
+<li>
+<p>The Transformer architecture has allowed us to train models in a more efficient way.</p>
+</li>
+<li>
+<p>Instead of processing each token in a sentence or sequence, attention allows a model to process tokens in parallel in various ways.</p>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="understand-differences-in-language-models">Understand differences in language models<a href="#understand-differences-in-language-models" class="hash-link" aria-label="Direct link to Understand differences in language models" title="Direct link to Understand differences in language models">​</a></h2>
+<ul>
+<li>Thesedays developers dont need to train models from scratch to build GenAI application, but can use pretrained models.</li>
+<li>Some language models are open sourced; whereas others are offered in proprietary catalogs.</li>
+<li>Different models exists today.</li>
+<li>They differ by the data used to train them, or by the way they implement attention mechanism within their architecture.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="large-and-small-language-models">Large and Small Language Models<a href="#large-and-small-language-models" class="hash-link" aria-label="Direct link to Large and Small Language Models" title="Direct link to Large and Small Language Models">​</a></h3>
+<ul>
+<li>In general, language model can be considered in two categories: Large Language Model (LLMs) and Small Language Models (SLMs).</li>
+</ul>
+<table><thead><tr><th>Large Language Models (LLMs)</th><th>Small Language Models (SLMs)</th></tr></thead><tbody><tr><td>LLMs are trained with vast quantities of text that represent a wide range of general subject matter.</td><td>SLMs are trained with smaller, more subject-focused datasets</td></tr><tr><td>When trained, LLMs have many billions (even trillions) of parameters (weights that can be applied to vector embeddings to calculate predicted token sequences).</td><td>Typically have fewer parameters than LLMs.</td></tr><tr><td>Able to exhibit comprehensive language generation capabilities in a wide range of conversational contexts.</td><td>This focused vocabulary makes them effective in specific conversational topics, but less effective at more general language generation.</td></tr><tr><td>Their large size can impact their performance and make them difficult to deploy locally on devices and computers.</td><td>The smaller size of SLMs can provide more options for deployment, including local deployment and on-premises computers; and makes them faster and easier to fine-tune.</td></tr><tr><td>Fine-tuning the model with more data to customize its subject expertise can be time-consuming, and expensive in terms of the compute power required to perform the extra training.</td><td>Fine-tuning can potentially be less time-consuming and expensive.</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="improve-prompt-results">Improve prompt results<a href="#improve-prompt-results" class="hash-link" aria-label="Direct link to Improve prompt results" title="Direct link to Improve prompt results">​</a></h2>
+<ul>
+<li>The quality of responses from GenAI assistants not only depends on language model used, but also on the prompt that user provides.</li>
+<li>The user can get a perfect response from GenAI assistant by providing explicit requirements in the prompt.</li>
+<li>Following are the ways to improve the response provided by GenAI.<!-- -->
+<ol>
+<li>Starting with a specific goal.</li>
+<li>Providing a source to ground the response.</li>
+<li>Add context.</li>
+<li>Set clear expectations.</li>
+<li>Iterate based on previous prompts and responses to refine the result.</li>
+</ol>
+</li>
+<li>For eg &quot;Summarize the key considerations for adopting Copilot<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em"><span style="top:-3.063em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span> described in this document<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em"><span style="top:-3.063em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> for a corporate executive<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em"><span style="top:-3.063em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span>. Format the summary as no more than six bullet points with a professional tone.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em"><span style="top:-3.063em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span>&quot;</li>
+<li>In most cases, an agent does not just sends the prompt to the language model as is.</li>
+<li>It is usually augmented with,<!-- -->
+<ul>
+<li>A system message that sets conditions and constraints for language model behavior like &quot;You are a helpful assistant that responds in a cheerful, friendly manner.&quot;</li>
+<li>The conversational history.</li>
+<li>The current prompt, potentially optimized by the agent to reword it appropriately for the model or to add more grounding data to scope the response.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="create-responsible-generative-ai-solutions">Create responsible generative AI solutions<a href="#create-responsible-generative-ai-solutions" class="hash-link" aria-label="Direct link to Create responsible generative AI solutions" title="Direct link to Create responsible generative AI solutions">​</a></h2>
+<ul>
+<li>Microsoft&#x27;s guidance is a practical roadmap for creating and using generative AI in a way that&#x27;s ethical and responsible.</li>
+<li>Microsoft&#x27;s responsible AI guidance for generative models involves a four-stage process:<!-- -->
+<ol>
+<li>Predict problems</li>
+<li>Check for problems</li>
+<li>Fix problems</li>
+<li>User responsibly</li>
+</ol>
+</li>
+<li>All these steps are based on 6 key responsible AI principles.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="responsible-ai-principles">Responsible AI principles<a href="#responsible-ai-principles" class="hash-link" aria-label="Direct link to Responsible AI principles" title="Direct link to Responsible AI principles">​</a></h3>
+<ul>
+<li>
+<p>It is important to consider the impact of software on users and society in general, especially when it includes AI.</p>
+</li>
+<li>
+<p>This is due to the nature of how AI systems work and inform decisions because it is based on probabilistic models.</p>
+</li>
+<li>
+<p>These probabilistic models are in turn dependent on the data with which they were trained.</p>
+</li>
+<li>
+<p>The human like nature of AI helps making applications user friendly; however, it comes with a responsibility for the AI to make correct decisions.</p>
+</li>
+<li>
+<p>There is a potential harm if the AI makes incorrect predictions or misuse of AI is a major concern.</p>
+</li>
+<li>
+<p>Software engineers building AI enabled solutions should apply due considerations to mitigate these risks and ensure fairness and reliability.</p>
+</li>
+<li>
+<p>Following are some core principles that Microsoft adopted for responsible AI</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fairness">Fairness<a href="#fairness" class="hash-link" aria-label="Direct link to Fairness" title="Direct link to Fairness">​</a></h4>
+<ul>
+<li>AI systems should treat all people fairly.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="reliability-and-safety">Reliability and Safety<a href="#reliability-and-safety" class="hash-link" aria-label="Direct link to Reliability and Safety" title="Direct link to Reliability and Safety">​</a></h4>
+<ul>
+<li>AI systems should perform reliably and safely.</li>
+<li>For example, consider an AI-based software system for an autonomous vehicle; or a machine learning model that diagnoses patient symptoms and recommends prescriptions.</li>
+<li>Unreliability in these kinds of system can result in substantial risk to human life.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="privacy-and-security">Privacy and Security<a href="#privacy-and-security" class="hash-link" aria-label="Direct link to Privacy and Security" title="Direct link to Privacy and Security">​</a></h4>
+<ul>
+<li>AI systems should be secure and respect privacy.</li>
+<li>The machine learning models on which AI systems are based rely on large volumes of data, which may contain personal details that must be kept private.</li>
+<li>Even after models are trained and the system is in production, they use new data to make predictions or take action that may be subject to privacy or security concerns; so appropriate safeguards to protect data and customer content must be implemented.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="inclusiveness">Inclusiveness<a href="#inclusiveness" class="hash-link" aria-label="Direct link to Inclusiveness" title="Direct link to Inclusiveness">​</a></h4>
+<ul>
+<li>AI systems should empower everyone and engage people. AI should bring benefits to all parts of society, regardless of physical ability, gender, sexual orientation, ethnicity, or other factors.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="transparency">Transparency<a href="#transparency" class="hash-link" aria-label="Direct link to Transparency" title="Direct link to Transparency">​</a></h4>
+<ul>
+<li>AI systems should be understandable. Users should be made fully aware of the purpose of the system, how it works, and what limitations may be expected.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="accountability">Accountability<a href="#accountability" class="hash-link" aria-label="Direct link to Accountability" title="Direct link to Accountability">​</a></h4>
+<ul>
+<li>People should be accountable for AI systems.</li>
+<li>Although many AI systems seem to operate autonomously, ultimately it&#x27;s the responsibility of the developers who trained and validated the models they use, and defined the logic that bases decisions on model predictions to ensure that the overall system meets responsibility requirements.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/Get started with Machine Learning in Azure"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Get started with Machine Learning in Azure</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Get Started with Generative AI on Azure"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Get Started with Generative AI on Azure</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-is-generative-ai" class="table-of-contents__link toc-highlight">What is generative AI?</a></li><li><a href="#how-do-language-models-work" class="table-of-contents__link toc-highlight">How do language models work?</a><ul><li><a href="#tokenization" class="table-of-contents__link toc-highlight">Tokenization</a></li><li><a href="#word-embeddings" class="table-of-contents__link toc-highlight">Word Embeddings</a></li><li><a href="#architectural-developments" class="table-of-contents__link toc-highlight">Architectural developments</a></li></ul></li><li><a href="#understand-how-transformers-advance-language-models" class="table-of-contents__link toc-highlight">Understand how transformers advance language models</a><ul><li><a href="#understand-transformer-architecture" class="table-of-contents__link toc-highlight">Understand Transformer architecture</a></li></ul></li><li><a href="#understand-positional-encoding" class="table-of-contents__link toc-highlight">Understand positional encoding</a></li><li><a href="#understand-attention" class="table-of-contents__link toc-highlight">Understand attention</a></li><li><a href="#understand-differences-in-language-models" class="table-of-contents__link toc-highlight">Understand differences in language models</a><ul><li><a href="#large-and-small-language-models" class="table-of-contents__link toc-highlight">Large and Small Language Models</a></li></ul></li><li><a href="#improve-prompt-results" class="table-of-contents__link toc-highlight">Improve prompt results</a></li><li><a href="#create-responsible-generative-ai-solutions" class="table-of-contents__link toc-highlight">Create responsible generative AI solutions</a><ul><li><a href="#responsible-ai-principles" class="table-of-contents__link toc-highlight">Responsible AI principles</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://x.com/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://linkedin.com/in/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://dev.to/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blogs<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://youtube.com/@busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">YouTube<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://instagram.com/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Support</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://buymeacoffee.com/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">Buy Me a Coffee<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://topmate.io/busycaesar" target="_blank" rel="noopener noreferrer" class="footer__link-item">Topmate<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 shahtech.info. All Rights Reserved.</div></div></div></footer></div>
 </body>
 </html>
