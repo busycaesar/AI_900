@@ -92,7 +92,6 @@ sidebar_position: 12
 - Now, with AI, It can do much more than traditional keyword search:
 	- AI can understand context, relationships, and meaning.
 	- It can extract names, dates, topics, emotions, and more.
-
 ### Step 1: Document Cracking
 - In AI-powered information extraction for search, content first moves through Document cracking.
 - Document cracking describes opening document formats like PDFs to extract the contents as ASCII text for analysis and indexing.
